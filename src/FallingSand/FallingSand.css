@@ -1,0 +1,67 @@
+#game-container {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  border: 4px solid white;
+  display: "flex";
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.main {
+  background-image: url("fallingSand.png");
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+}
+
+.backButton {
+  font-size: 4rem;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  color: black;
+  z-index: 10;
+  transition: transform;
+  transition-timing-function: ease;
+  transition-duration: 400ms;
+}
+
+.backButton:hover {
+  transform: scale(1.18);
+}
+
+.backButton:active {
+  transform: scale(0.92);
+}
+
+.brushSizeSlider {
+  position: absolute;
+  top: 200px;
+  left: 10px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.brushSizeSlider label {
+  margin-bottom: 10px;
+  font-size: 1.25rem;
+}
+
+.brushSizeSlider input {
+  width: 60px;
+  height: 300px;
+}
+
+.resetButton {
+  position: absolute;
+  font-size: 1.25rem;
+  top: 550px;
+  left: 30px;
+}

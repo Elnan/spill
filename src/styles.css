@@ -1,0 +1,223 @@
+body,
+main {
+  height: 100dvh;
+  width: 100dvw;
+  margin: 0px;
+  background-color: black;
+  overflow: hidden;
+}
+
+.index-background main {
+  background-image: url("./gamemaster.png");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 2;
+  transition: transform 500ms cubic-bezier(0.13, 0.53, 0.38, 0.97);
+}
+
+main.shifted {
+  transform: translateY(-50%);
+}
+
+#nav {
+  background-color: rgb(16, 16, 16);
+  height: 50vh;
+  width: 100vw;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  z-index: 1;
+}
+
+#nav-links {
+  display: flex;
+  gap: clamp(1rem, 2vw, 2rem);
+  margin-top: clamp(2rem, 2vw, 3rem);
+  padding: 0rem clamp(1rem, 2vw, 2rem);
+  transform: translateY(70%) scale(0.9);
+  transition: transform 500ms cubic-bezier(0.13, 0.53, 0.38, 0.97);
+}
+
+div[data-nav="true"] #nav-links {
+  transform: translateY(0%) scale(1);
+}
+
+.nav-link {
+  flex: 1;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+}
+
+.nav-link-label {
+  font-size: 1.25rem;
+  margin: 0rem;
+  text-transform: uppercase;
+  color: white;
+}
+
+.nav-link img {
+  width: max(20vw);
+  aspect-ratio: 1.8 / 1;
+  border-radius: 0.5rem;
+  margin-top: 0.75rem;
+  object-fit: cover;
+}
+
+.buttonContainer {
+  display: inline-block;
+  position: fixed;
+  z-index: 3;
+  left: 50%;
+  bottom: 20%;
+  transform: translateX(-50%);
+}
+
+#nav-toggle {
+  width: 15rem;
+  height: 15rem;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 15px solid rgb(255, 136, 24);
+  border-left-width: 25px;
+  border-top-width: 25px;
+  border-radius: 15rem;
+  outline: none;
+  cursor: pointer;
+  filter: blur(10px);
+  transition: transform, background-color;
+  transition-timing-function: ease;
+  transition-duration: 400ms;
+}
+
+#nav-toggle:hover {
+  transform: translate(-50%, -50%) scale(1.18);
+}
+
+#nav-toggle:active {
+  transform: translate(-50%, -50%) scale(0.92);
+}
+
+/* Knappen når Nav er åpen */
+div[data-nav="true"] #nav-toggle {
+  transform: translate(-50%, -50%);
+  transition: transform 500ms cubic-bezier(0.13, 0.53, 0.38, 0.97);
+  background-color: black;
+  border: 5px solid rgb(255, 136, 24);
+  filter: none;
+  width: 10rem;
+  height: 10rem;
+}
+
+div[data-nav="true"] .buttonContainer {
+  transform: translate(-50%, 30%) scale(1);
+}
+
+div[data-nav="true"] #nav-toggle:hover {
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+div[data-nav="true"] #nav-toggle:active {
+  transform: translate(-50%, -50%) scale(0.92);
+}
+
+/* Knapp Ikoner */
+.buttonContainer > .nav-icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-size: 5rem;
+  opacity: 0;
+  transition: opacity 400ms ease;
+  pointer-events: none;
+}
+
+.buttonContainer > .open-icon {
+  color: rgb(255, 136, 24);
+  opacity: 0;
+  transition: none;
+  filter: blur(3px);
+  left: 50%;
+  top: 50%;
+}
+
+.buttonContainer > .close-icon {
+  color: aliceblue;
+  opacity: 0;
+  filter: none;
+}
+
+div[data-nav="true"] .buttonContainer > .close-icon {
+  opacity: 1;
+  transition: opacity 400ms ease;
+}
+
+div[data-nav="true"] .buttonContainer:hover > .open-icon {
+  opacity: 0;
+}
+
+.buttonContainer:hover > .open-icon {
+  opacity: 1;
+}
+
+/* Responsiv design for mobil */
+@media (max-width: 768px) {
+  .index-background main {
+    background-size: cover;
+    background-position: center;
+  }
+
+  #nav-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+  }
+
+  .nav-link {
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% calc(100% - 2rem),
+      calc(100% - 2rem) 100%,
+      0 100%
+    );
+  }
+
+  .nav-link img {
+    width: max(40vw);
+  }
+
+  .buttonContainer {
+    bottom: 30%;
+  }
+
+  #nav-toggle {
+    width: 10rem;
+    height: 10rem;
+
+    top: 190%;
+  }
+
+  div[data-nav="true"] #nav-toggle:hover {
+    transform: translate(-50%, -65%) scale(0.5);
+  }
+
+  div[data-nav="true"] .buttonContainer {
+    transform: translate(-50%, -40%);
+  }
+
+  .buttonContainer > .nav-icon {
+    transform: translate(-50%, -75%);
+    font-size: 3rem;
+  }
+
+  .buttonContainer > .open-icon {
+    transform: translate(-40%, -20%);
+  }
+
+  .nav-link-label {
+    font-size: 0.6rem;
+  }
+}

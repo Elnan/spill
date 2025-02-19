@@ -1,0 +1,28 @@
+.statsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.statsItem {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  flex: 1;
+  min-width: 250px;
+}
+
+.statsItem h3 {
+  margin-top: 0;
+}
+
+.underConstruction {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.underConstruction img {
+  max-width: 50%;
+  height: auto;
+}

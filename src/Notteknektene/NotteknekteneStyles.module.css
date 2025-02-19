@@ -1,0 +1,19 @@
+body {
+  background-color: white;
+}
+
+.notteknekteneContainer {
+  height: 100dvh;
+  width: 100dvw;
+  margin: 0px;
+  display: flex;
+}
+
+.mainContent {
+  flex-grow: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f4f4;
+  min-height: 100vh;
+}

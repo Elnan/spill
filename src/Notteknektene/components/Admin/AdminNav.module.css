@@ -1,0 +1,28 @@
+.adminNav {
+  width: 200px;
+  background-color: #f4f4f4;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.adminNav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.adminNav li {
+  margin: 20px 0;
+}
+
+.adminNav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+}

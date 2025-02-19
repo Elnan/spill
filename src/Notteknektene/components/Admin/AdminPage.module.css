@@ -1,0 +1,12 @@
+.adminPage {
+  display: flex;
+}
+
+.adminContent {
+  flex-grow: 1;
+  padding: 20px;
+  margin-left: 220px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f4f4;
+}

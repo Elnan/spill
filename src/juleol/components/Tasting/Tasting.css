@@ -1,0 +1,257 @@
+:root {
+  --bg-color: rgb(46, 46, 46);
+  --card-color: #101820;
+  --highlight-color: #fee715;
+}
+
+.tasting-wrapper {
+  display: flex;
+
+  font-family: "Poppins", sans-serif;
+  background-image: url("https://plus.unsplash.com/premium_vector-1689096638174-b7298abd3142?q=80&w=1800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-attachment: fixed;
+  color: #fff;
+  height: 100dvh;
+  width: 100dvw;
+}
+
+.tasting-container {
+  align-self: center;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.tasting-container h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #ffcc00;
+  margin: 0;
+  font-weight: bold;
+  z-index: 1;
+  margin-bottom: 20px;
+}
+
+.tasting-container h2 {
+  font-size: 1.5rem;
+  color: #ff5733;
+  margin-bottom: 10px;
+}
+
+.tasting-container .content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: var(--card-color);
+  border-radius: 10px;
+  max-width: 600px;
+  margin-top: 30px;
+}
+
+.tasting-container .beer-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  opacity: 0.8;
+  margin-top: 20px;
+}
+
+.tasting-container .beer-info p {
+  margin: 0;
+  padding: 0 10px;
+}
+
+.tasting-container .beer-info .brought-by {
+  margin-top: 5px;
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+.scoring {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 400px;
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.scoring label {
+  font-size: 1.2rem;
+}
+
+.scoring input {
+  width: 95%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #e8f0fe;
+  color: #000;
+  font-size: 1.2rem;
+}
+
+.scoring button {
+  width: 100%;
+  padding: 15px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(to right, #ff5733, #c70039);
+  color: #fff;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.scoring button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(255, 87, 51, 0.6);
+}
+
+.submitted-score {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.submitted-score h3 {
+  font-size: 2rem;
+  background: linear-gradient(to right, #28a745, #218838);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-right: 20px;
+  line-height: 1;
+}
+
+/* Øl informasjon */
+.tasting-container .beer-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Navn på øl */
+.tasting-container .beer-info strong {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Øl detaljer, produsent, alkoholprosent og hvem som tok med ølen på én linje */
+.tasting-container .beer-info .beer-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+  opacity: 0.8;
+  margin-top: 5px;
+}
+
+/* Skillelinje for informasjonen */
+.tasting-container .beer-info .beer-details span {
+  display: inline-block;
+}
+
+/* Brought By - separat linje under detaljene */
+.tasting-container .beer-info .brought-by {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+/* Justere knappen "Neste øl" */
+.next-button {
+  width: 60%;
+  margin: 10px auto;
+  padding: 15px;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(to right, #28a745, #218838);
+  color: #fff;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.next-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.6);
+}
+
+.finished-tasting {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.finished-tasting h1 {
+  font-size: 2.5rem;
+  color: #fee715;
+  margin-bottom: 20px;
+}
+
+.finished-tasting .button {
+  background: linear-gradient(to right, #ff5733, #c70039);
+  padding: 15px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.finished-tasting .button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(255, 87, 51, 0.6);
+}
+
+/* Progres Bar */
+.progress-bar-container {
+  width: 100%;
+  height: 10px;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #4caf50;
+  transition: width 0.3s ease-in-out;
+}
+
+.progress-bar-container {
+  position: relative;
+}

@@ -1,0 +1,147 @@
+.juleol-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://plus.unsplash.com/premium_vector-1689096638174-b7298abd3142?q=80&w=1800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100dvw;
+  height: 100vh;
+  color: #ffcc00;
+  overflow-y: auto;
+}
+
+.juleol-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+
+  /* Overskrifter */
+  h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #ffcc00;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    color: #ff5733;
+    margin-bottom: 10px;
+  }
+}
+
+/* Skjema for å legge til øl */
+.add-beer-section input {
+  width: 95%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #e8f0fe;
+  color: #000;
+}
+
+.add-beer-section input[type="number"] {
+  appearance: textfield;
+}
+
+.add-beer-section input:focus {
+  outline: none;
+  box-shadow: 0 0 5px #ff5733;
+}
+
+.add-beer-section button {
+  width: 95%;
+  padding: 15px;
+  margin: 10px;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(to right, #ff5733, #c70039);
+  color: #fff;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.add-beer-section button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(255, 87, 51, 0.6);
+}
+
+/* Liste over øl */
+.beer-list {
+  flex-grow: 0;
+  margin-top: 20px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.beer-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.beer-list li {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+/* Start smaking */
+.start-tasting button {
+  width: 95%;
+  margin: 10px;
+  padding: 15px;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(to right, #28a745, #218838);
+  color: #fff;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.start-tasting button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.6);
+}
+
+/* Responsivt design */
+@media (max-width: 768px) {
+  .juleol-container {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  .add-beer-section button,
+  .start-tasting button {
+    padding: 10px;
+    font-size: 1rem;
+  }
+
+  .add-beer-section input {
+    font-size: 1rem;
+  }
+}

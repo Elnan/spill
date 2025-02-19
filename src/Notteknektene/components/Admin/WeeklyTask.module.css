@@ -1,0 +1,92 @@
+.weeklyTaskContainer {
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  flex: 1;
+  min-width: 250px;
+}
+
+.card textarea,
+.card input {
+  margin: 5px;
+  resize: none;
+}
+
+.xsmallContainer {
+  display: flex;
+  gap: 20px;
+}
+
+.xsmallCard {
+  max-width: 30px;
+  text-align: center;
+}
+
+.smallCards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.previewCard {
+  flex: 2;
+}
+
+.activeTaskImage {
+  max-width: 100%;
+  max-height: 300px;
+  display: block;
+  margin: 10px 0;
+}
+
+.taskStatus {
+  display: flex;
+  align-items: center;
+}
+
+.slider {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-right: 10px;
+  background-color: red;
+  border-radius: 34px;
+  transition: 0.4s;
+}
+
+.slider.active {
+  background-color: green;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+.slider.active:before {
+  transform: translateX(26px);
+}
+
+button {
+  margin-top: 10px;
+}

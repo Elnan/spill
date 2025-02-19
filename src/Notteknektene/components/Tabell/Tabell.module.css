@@ -1,0 +1,101 @@
+.tableContainer {
+  margin-top: 20px;
+  max-width: 80%;
+  overflow-x: auto;
+}
+
+.tableHeader {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.tableRow:nth-of-type(even) {
+  background-color: #f9f9f9;
+}
+
+.tableRow:nth-of-type(odd) {
+  background-color: white;
+}
+
+.buttonContainer {
+  margin-bottom: 16px;
+}
+
+.mainBox {
+  padding: 16px;
+  overflow-x: auto;
+}
+
+.tableRow:hover {
+  background-color: #e0e0e0;
+}
+
+.tableTitle {
+  margin-bottom: 16px;
+}
+
+.lastRoundCell {
+  border-right: none;
+}
+
+.tableCell {
+  padding: 8px 16px;
+}
+
+/* Table sizes */
+
+.rankCell {
+  text-align: center;
+}
+
+.nameCell {
+  border-right: 2px solid #000;
+  text-align: left;
+}
+
+.roundCell {
+  border-right: 2px solid #000;
+  text-align: center;
+}
+
+.totalColumn {
+  font-weight: bold;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .tableContainer {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .tableHeader,
+  .tableRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .tableCell,
+  .rankCell,
+  .nameCell,
+  .roundCell,
+  .totalColumn {
+    flex: 1;
+    padding: 8px;
+    text-align: center;
+    border-right: none;
+  }
+
+  .nameCell {
+    text-align: left;
+  }
+
+  .tableRow {
+    flex-wrap: nowrap;
+  }
+
+  .tableRow:hover {
+    background-color: #e0e0e0;
+  }
+}

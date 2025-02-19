@@ -1,0 +1,118 @@
+.registerWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+  width: 100dvw;
+  background-color: #f9f9f9;
+}
+
+.backButton {
+  font-size: 4rem;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+  transition: transform;
+  transition-timing-function: ease;
+  transition-duration: 400ms;
+  cursor: pointer;
+  color: black;
+}
+
+.backButton:hover {
+  transform: scale(1.18);
+}
+
+.backButton:active {
+  transform: scale(0.92);
+}
+
+.registerContainer {
+  padding: 80px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.registerTitle {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.registerForm .formGroup {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.formLabel {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  background-color: white;
+  padding: 0 5px;
+  transition: 0.3s;
+  color: #aaa;
+  pointer-events: none;
+}
+
+.formInput {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.formInput:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.formInput:focus + .formLabel,
+.formInput:not(:placeholder-shown) + .formLabel {
+  top: -10px;
+  left: 10px;
+  color: #3b82f6;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  background-color: #0056b3;
+}
+
+.errorMessage {
+  color: red;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.loginLink {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.loginLink:hover {
+  text-decoration: underline;
+}
+
+.buttonDisabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

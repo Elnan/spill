@@ -1,0 +1,57 @@
+.participants-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.participants-table th,
+.participants-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.participants-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.participants-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.participants-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.participantsContainer {
+  width: 100%;
+  margin: 20px 0;
+}
+
+.participantsList {
+  list-style: none;
+  padding: 0;
+}
+
+.participantsList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 8px;
+}
+
+.participating {
+  background-color: #4caf50;
+  color: white;
+}
+
+.participantsList li:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.participantsList li:hover {
+  background-color: #f1f1f1;
+}
