@@ -3,15 +3,17 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
+// Firebase configuration for Juleol
 const juleolConfig = {
-  apiKey: "AIzaSyC2e_jn9lPI14Ft7K-EhvnSDSZAJIvBwKo",
-  authDomain: "juleol-cfd39.firebaseapp.com",
-  projectId: "juleol-cfd39",
-  storageBucket: "juleol-cfd39.firebasestorage.app",
-  messagingSenderId: "845097189837",
-  appId: "1:845097189837:web:3f6c3e4d158cc5e09d8484",
+  apiKey: import.meta.env.VITE_JULEOL_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_JULEOL_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_JULEOL_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_JULEOL_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_JULEOL_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_JULEOL_FIREBASE_APP_ID,
 };
 
+// Initialize Firebase for Juleol
 const juleolApp = initializeApp(juleolConfig, "juleol");
 const juleolAuth = getAuth(juleolApp);
 const juleolDb = getFirestore(juleolApp);
