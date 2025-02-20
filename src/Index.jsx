@@ -33,7 +33,7 @@ export default function Index() {
               <h2 className="nav-link-label rubik-font">Nøtteknektene</h2>
               <img
                 className="nav-link-image"
-                src="./notteknektene.png"
+                src="/notteknektene.png"
                 alt="Nøtteknektene"
               />
             </Link>
@@ -41,7 +41,7 @@ export default function Index() {
               <h2 className="nav-link-label rubik-font">Falling Sand</h2>
               <img
                 className="nav-link-image"
-                src="./fallingSand.png"
+                src="/fallingSand.png"
                 alt="Falling Sand"
               />
             </Link>

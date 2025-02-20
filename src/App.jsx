@@ -7,14 +7,19 @@ import {
 } from "react-router-dom";
 import Index from "./Index.jsx";
 import { AuthProvider } from "./Notteknektene/context/authContext";
-import FallingSand from "./FallingSand/FallingSand.jsx";
-import Juleol from "./juleol/components/jo/Juleol.jsx";
-import Tasting from "./juleol/components/Tasting/Tasting";
-import Results from "./juleol/components/Results/Results";
-import NotteknekteneRoutes from "./Notteknektene/NotteknekteneRoutes";
-import Login from "./Notteknektene/components/auth/login/index.jsx";
-import Register from "./Notteknektene/components/auth/register";
 import styles from "./App.module.css";
+
+const FallingSand = lazy(() => import("./FallingSand/FallingSand.jsx"));
+const Juleol = lazy(() => import("./juleol/components/jo/Juleol.jsx"));
+const Tasting = lazy(() => import("./juleol/components/Tasting/Tasting"));
+const Results = lazy(() => import("./juleol/components/Results/Results"));
+const Login = lazy(
+  () => import("./Notteknektene/components/auth/login/index.jsx")
+);
+const Register = lazy(() => import("./Notteknektene/components/auth/register"));
+const NotteknekteneRoutes = lazy(
+  () => import("./Notteknektene/NotteknekteneRoutes")
+);
 
 const App = () => {
   return (

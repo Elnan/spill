@@ -7,4 +7,20 @@ export default defineConfig({
   define: {
     "process.env": process.env,
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ["react", "react-dom"],
+          firebase: [
+            "firebase/app",
+            "firebase/auth",
+            "firebase/firestore",
+            "firebase/storage",
+          ],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 1200, // Can adjust this value
+  },
 });

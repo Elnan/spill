@@ -8,7 +8,7 @@ main {
 }
 
 .index-background main {
-  background-image: url("./gamemaster.png");
+  background-image: url("/gamemaster.png");
   background-size: cover;
   background-position: center;
   position: relative;
