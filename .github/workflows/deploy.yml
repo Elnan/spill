@@ -1,0 +1,84 @@
+name: Deploy til GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Hent kode fra GitHub
+        uses: actions/checkout@v4
+
+      - name: Sett opp Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Cache npm dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Installer avhengigheter
+        run: npm install
+
+      - name: Bygg prosjektet
+        run: npm run build
+
+      - name: Sjekk størrelsen på dist-mappen
+        run: du -sh dist
+
+      - name: List innholdet i dist-mappen
+        run: ls -la dist
+
+      - name: Check for symlinks
+        run: |
+          if find dist -type l | read; then
+            echo "Found symbolic links in the dist directory, which are not supported."
+            exit 1
+          else
+            echo "No symbolic links found in the dist directory."
+          fi
+
+      - name: Ensure correct file permissions
+        run: chmod -R o+r dist
+
+      - name: Last opp bygget til GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          name: github-pages
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Hent artefakt
+        uses: actions/download-artifact@v4
+        with:
+          name: github-pages
+          path: downloaded-artifact
+
+      - name: List innholdet i downloaded-artifact-mappen etter nedlasting
+        run: ls -la downloaded-artifact
+
+      - name: Deploy til GitHub Pages
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages
+          token: ${{ secrets.GITHUB_TOKEN }}
