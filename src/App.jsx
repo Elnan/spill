@@ -21,6 +21,8 @@ const App = () => {
           <Route path="/jo" element={<Juleol />} />
           <Route path="/tasting" element={<Tasting />} />
           <Route path="/results" element={<Results />} />
+          <Route path="/spill" element={<Navigate to="/" />} />
+
           <Route
             path="/auth/*"
             element={
