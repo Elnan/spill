@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import { FaBarsStaggered, FaXmark } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
+import home from "../public/home.png";
+import notteknektene from "../public/notteknektene.png";
+import fallingSand from "../public/fallingSand.png";
+import juleol from "../public/juleol.webp";
 import "./styles.css";
 
 export default function Index() {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
@@ -27,13 +32,13 @@ export default function Index() {
           <div id="nav-links">
             <Link className="nav-link" to="/">
               <h2 className="nav-link-label rubik-font">Home</h2>
-              <img className="nav-link-image" src="home.png" alt="Home" />
+              <img className="nav-link-image" src={home} alt="Home" />
             </Link>
             <Link className="nav-link" to="./auth/login">
               <h2 className="nav-link-label rubik-font">Nøtteknektene</h2>
               <img
                 className="nav-link-image"
-                src="/notteknektene.png"
+                src={notteknektene}
                 alt="Nøtteknektene"
               />
             </Link>
@@ -41,13 +46,13 @@ export default function Index() {
               <h2 className="nav-link-label rubik-font">Falling Sand</h2>
               <img
                 className="nav-link-image"
-                src="/fallingSand.png"
+                src={fallingSand}
                 alt="Falling Sand"
               />
             </Link>
             <Link className="nav-link" to="/jo">
               <h2 className="nav-link-label rubik-font">Juleøl</h2>
-              <img className="nav-link-image" src="juleol.webp" alt="Juleøl" />
+              <img className="nav-link-image" src={juleol} alt="Juleøl" />
             </Link>
           </div>
         </nav>

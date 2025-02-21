@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
 import { doSignOut } from "../../firebase/auth";
@@ -22,13 +22,13 @@ const AdminSidebar = () => {
     <div className={styles.adminSidebar}>
       <ul className={styles.adminSidebarList}>
         <li>
-          <Link to="/nk/admin/participants">Participants</Link>
+          <NavLink to="/nk/admin/participants">Participants</NavLink>
         </li>
         <li>
-          <Link to="/nk/admin/weekly-task">Weekly Task</Link>
+          <NavLink to="/nk/admin/weekly-task">Weekly Task</NavLink>
         </li>
         <li>
-          <Link to="/nk/admin/submissions">Submissions</Link>
+          <NavLink to="/nk/admin/submissions">Submissions</NavLink>
         </li>
       </ul>
 
@@ -36,16 +36,16 @@ const AdminSidebar = () => {
 
       <ul className={styles.adminSidebarList}>
         <li>
-          <Link to="/nk">Notteknektene Home</Link>
+          <NavLink to="/nk">Notteknektene Home</NavLink>
         </li>
         <li>
-          <Link to="/nk/oppgave">Ukens Oppgave</Link>
+          <NavLink to="/nk/oppgave">Ukens Oppgave</NavLink>
         </li>
         <li>
-          <Link to="/nk/tabell">Tabell</Link>
+          <NavLink to="/nk/tabell">Tabell</NavLink>
         </li>
         <li>
-          <Link to="/nk/stats">Stats</Link>
+          <NavLink to="/nk/regler">Regler</NavLink>
         </li>
       </ul>
 

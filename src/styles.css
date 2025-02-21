@@ -200,12 +200,20 @@ div[data-nav="true"] .buttonContainer:hover > .open-icon {
     top: 190%;
   }
 
+  div[data-nav="true"] #nav-toggle {
+    transform: translate(-50%, 0%);
+  }
+
   div[data-nav="true"] #nav-toggle:hover {
-    transform: translate(-50%, -65%) scale(0.5);
+    transform: translate(-50%, 0) scale(0.8);
+  }
+
+  div[data-nav="true"] .buttonContainer > .close-icon {
+    transform: translate(-50%, 110%);
   }
 
   div[data-nav="true"] .buttonContainer {
-    transform: translate(-50%, -40%);
+    transform: translate(-50%, -80%);
   }
 
   .buttonContainer > .nav-icon {
@@ -214,10 +222,10 @@ div[data-nav="true"] .buttonContainer:hover > .open-icon {
   }
 
   .buttonContainer > .open-icon {
-    transform: translate(-40%, -20%);
+    transform: translate(-40%, -50%);
   }
 
   .nav-link-label {
-    font-size: 0.6rem;
+    font-size: 1rem;
   }
 }
