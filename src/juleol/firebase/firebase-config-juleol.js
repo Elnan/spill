@@ -13,6 +13,9 @@ const juleolConfig = {
   appId: import.meta.env.VITE_JULEOL_FIREBASE_APP_ID,
 };
 
+// Feilsøking
+console.log("Juleol Firebase Config:", juleolConfig);
+
 // Initialize Firebase for Juleol
 const juleolApp = initializeApp(juleolConfig, "juleol");
 const juleolAuth = getAuth(juleolApp);
