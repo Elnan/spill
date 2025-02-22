@@ -6,6 +6,8 @@ import {
 } from "../../../firebase/auth";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 import { useAuth } from "../../../context/authContext";
+import googleIcon from "../../../../../public/LogoGoogle.png";
+
 import styles from "./Login.module.css";
 
 const Login = () => {
@@ -114,11 +116,7 @@ const Login = () => {
           disabled={isSigningIn}
           className={`${styles.googleSigninButton} ${isSigningIn ? styles.buttonDisabled : ""}`}
         >
-          <img
-            src="/LogoGoogle.png"
-            alt="Google"
-            className={styles.googleIcon}
-          />
+          <img src={googleIcon} alt="Google" className={styles.googleIcon} />
           {isSigningIn ? "Logger inn..." : "Logg inn med Google"}
         </button>
       </div>

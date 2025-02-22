@@ -70,7 +70,7 @@ const Sidebar = () => {
       {currentUser && (
         <div className={styles.userInfo}>
           <img
-            src={currentUser.photoURL || { defaultAvatar }}
+            src={currentUser.photoURL || defaultAvatar}
             alt={currentUser.displayName || currentUser.email}
             className={styles.userPhoto}
           />
