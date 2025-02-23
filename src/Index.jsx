@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { FaBarsStaggered, FaXmark } from "react-icons/fa6";
-import { Link, useNavigate } from "react-router-dom";
-import { IoArrowBackCircleOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 import home from "../public/home.png";
 import notteknektene from "../public/notteknektene.png";
 import fallingSand from "../public/fallingSand.png";
@@ -10,30 +9,27 @@ import "./styles.css";
 
 export default function Index() {
   const [isNavOpen, setIsNavOpen] = useState(false);
-  const navigate = useNavigate();
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
 
-  const handleBackToMain = () => {
-    navigate("/");
-  };
-
   return (
     <div className="index-background">
-      <div className="backButton" onClick={handleBackToMain}>
-        <IoArrowBackCircleOutline />
-      </div>
       <div data-nav={isNavOpen ? "true" : "false"}>
         <main className={isNavOpen ? "shifted" : ""}></main>
 
         <nav id="nav">
           <div id="nav-links">
-            <Link className="nav-link" to="/">
+            <a
+              className="nav-link"
+              href="https://kikunnskap.no"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <h2 className="nav-link-label rubik-font">Home</h2>
               <img className="nav-link-image" src={home} alt="Home" />
-            </Link>
+            </a>
             <Link className="nav-link" to="./auth/login">
               <h2 className="nav-link-label rubik-font">Nøtteknektene</h2>
               <img
