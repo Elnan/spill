@@ -5,9 +5,6 @@ import react from "@vitejs/plugin-react-swc";
 export default defineConfig({
   base: "/spill/",
   plugins: [react()],
-  define: {
-    "process.env": process.env,
-  },
   build: {
     rollupOptions: {
       output: {
