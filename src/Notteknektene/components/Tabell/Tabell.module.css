@@ -1,6 +1,6 @@
 .tableContainer {
   margin-top: 20px;
-  max-width: 80%;
+  max-width: 100%;
   overflow-x: auto;
 }
 
@@ -71,9 +71,7 @@
 
   .tableHeader,
   .tableRow {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: table-row;
   }
 
   .tableCell,
@@ -81,8 +79,6 @@
   .nameCell,
   .roundCell,
   .totalColumn {
-    flex: 1;
-    padding: 8px;
     text-align: center;
     border-right: none;
   }
@@ -93,9 +89,5 @@
 
   .tableRow {
     flex-wrap: nowrap;
-  }
-
-  .tableRow:hover {
-    background-color: #e0e0e0;
   }
 }

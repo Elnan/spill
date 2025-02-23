@@ -30,6 +30,7 @@ const UkensOppgave = () => {
   const [openedAt, setOpenedAt] = useState(null);
   const [confirmationMessage, setConfirmationMessage] = useState("");
   const [showTimer, setShowTimer] = useState(true);
+  const [isTimerLoaded, setIsTimerLoaded] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   const { currentUser } = useAuth();
@@ -78,6 +79,7 @@ const UkensOppgave = () => {
     const loadData = async () => {
       await fetchTask();
       await fetchUserSubmission();
+      // await timer();
       setIsLoading(false);
     };
 
@@ -107,6 +109,7 @@ const UkensOppgave = () => {
 
           setTimer(`${days}d ${hours}h ${minutes}m ${seconds}s`);
         }
+        setIsTimerLoaded(true); // Sett isTimerLoaded til true når timeren er lastet inn
       }, 1000);
 
       return () => clearInterval(interval);

@@ -14,9 +14,6 @@ const notteknekteneConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
-// Feilsøking
-console.log("Notteknektene Firebase Config:", notteknekteneConfig);
-
 // Initialize Firebase for Notteknektene
 const notteknekteneApp = initializeApp(notteknekteneConfig, "notteknektene");
 const notteknekteneAuth = getAuth(notteknekteneApp);
