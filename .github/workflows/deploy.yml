@@ -36,16 +36,6 @@ jobs:
       - name: Installer avhengigheter
         run: npm install
 
-      - name: Print environment variables
-        run: |
-          echo "Firebase API Key: ${{ secrets.VITE_FIREBASE_API_KEY }}"
-          echo "Firebase Auth Domain: ${{ secrets.VITE_FIREBASE_AUTH_DOMAIN }}"
-          echo "Firebase Project ID: ${{ secrets.VITE_FIREBASE_PROJECT_ID }}"
-          echo "Firebase Storage Bucket: ${{ secrets.VITE_FIREBASE_STORAGE_BUCKET }}"
-          echo "Firebase Messaging Sender ID: ${{ secrets.VITE_FIREBASE_MESSAGING_SENDER_ID }}"
-          echo "Firebase App ID: ${{ secrets.VITE_FIREBASE_APP_ID }}"
-          echo "Firebase Measurement ID: ${{ secrets.VITE_FIREBASE_MEASUREMENT_ID }}"
-
       - name: Bygg prosjektet
         env:
           VITE_FIREBASE_API_KEY: ${{ secrets.VITE_FIREBASE_API_KEY }}
@@ -55,6 +45,14 @@ jobs:
           VITE_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.VITE_FIREBASE_MESSAGING_SENDER_ID }}
           VITE_FIREBASE_APP_ID: ${{ secrets.VITE_FIREBASE_APP_ID }}
           VITE_FIREBASE_MEASUREMENT_ID: ${{ secrets.VITE_FIREBASE_MEASUREMENT_ID }}
+
+          VITE_JULEOL_FIREBASE_API_KEY: ${{ secrets.VITE_JULEOL_FIREBASE_API_KEY }}
+          VITE_JULEOL_FIREBASE_AUTH_DOMAIN: ${{ secrets.VITE_JULEOL_FIREBASE_AUTH_DOMAIN }}
+          VITE_JULEOL_FIREBASE_PROJECT_ID: ${{ secrets.VITE_JULEOL_FIREBASE_PROJECT_ID }}
+          VITE_JULEOL_FIREBASE_STORAGE_BUCKET: ${{ secrets.VITE_JULEOL_FIREBASE_STORAGE_BUCKET }}
+          VITE_JULEOL_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.VITE_JULEOL_FIREBASE_MESSAGING_SENDER_ID }}
+          VITE_JULEOL_FIREBASE_APP_ID: ${{ secrets.VITE_JULEOL_FIREBASE_APP_ID }}
+
         run: npm run build
 
       - name: Sjekk størrelsen på dist-mappen
