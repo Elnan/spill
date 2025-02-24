@@ -1,9 +1,10 @@
-import React, { lazy } from "react";
+import React, { lazy, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Route,
   Routes,
   Navigate,
+  useLocation,
 } from "react-router-dom";
 import Index from "./Index.jsx";
 import { AuthProvider } from "./Notteknektene/context/authContext";
@@ -21,9 +22,25 @@ const NotteknekteneRoutes = lazy(
   () => import("./Notteknektene/NotteknekteneRoutes")
 );
 
+const HandleRedirect = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    const redirectPath = new URLSearchParams(window.location.search).get(
+      "redirect"
+    );
+    if (redirectPath) {
+      window.history.replaceState({}, "", redirectPath);
+    }
+  }, [location]);
+
+  return null;
+};
+
 const App = () => {
   return (
     <Router basename="/spill">
+      <HandleRedirect />
       <div className={styles.app}>
         <Routes>
           <Route path="/" element={<Index />} />

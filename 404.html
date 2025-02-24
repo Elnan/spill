@@ -1,7 +1,11 @@
 <!doctype html>
 <html>
   <head>
-    <meta http-equiv="refresh" content="0; url=/spill/index.html" />
+    <meta charset="UTF-8" />
+    <script type="text/javascript">
+      var path = window.location.pathname.replace("/spill", "");
+      window.location.replace("/spill/index.html?redirect=" + path);
+    </script>
   </head>
   <body></body>
 </html>
