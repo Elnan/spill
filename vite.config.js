@@ -7,7 +7,7 @@ dotenv.config();
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/",
+  base: "/spill/",
   plugins: [react()],
   build: {
     rollupOptions: {
