@@ -23,7 +23,7 @@ const NotteknekteneRoutes = lazy(
 
 const App = () => {
   return (
-    <Router>
+    <Router basename="/spill">
       <div className={styles.app}>
         <Routes>
           <Route path="/" element={<Index />} />
