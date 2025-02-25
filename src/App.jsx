@@ -39,7 +39,7 @@ const HandleRedirect = () => {
 
 const App = () => {
   return (
-    <Router basename="/spill">
+    <Router>
       <HandleRedirect />
       <div className={styles.app}>
         <Routes>
