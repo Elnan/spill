@@ -116,7 +116,11 @@ const Login = () => {
           disabled={isSigningIn}
           className={`${styles.googleSigninButton} ${isSigningIn ? styles.buttonDisabled : ""}`}
         >
-          <img src={googleIcon} alt="Google" className={styles.googleIcon} />
+          <img
+            src={googleIcon}
+            alt="A capitalized G, which is the icon of Google "
+            className={styles.googleIcon}
+          />
           {isSigningIn ? "Logger inn..." : "Logg inn med Google"}
         </button>
       </div>

@@ -28,14 +28,18 @@ export default function Index() {
               rel="noopener noreferrer"
             >
               <h2 className="nav-link-label rubik-font">Home</h2>
-              <img className="nav-link-image" src={home} alt="Home" />
+              <img
+                className="nav-link-image"
+                src={home}
+                alt="Button with an image of a home"
+              />
             </a>
             <Link className="nav-link" to="./auth/login">
               <h2 className="nav-link-label rubik-font">Nøtteknektene</h2>
               <img
                 className="nav-link-image"
                 src={notteknektene}
-                alt="Nøtteknektene"
+                alt="Button with an image of an agent solving a riddle"
               />
             </Link>
             <Link className="nav-link" to="/fs">
@@ -43,12 +47,16 @@ export default function Index() {
               <img
                 className="nav-link-image"
                 src={fallingSand}
-                alt="Falling Sand"
+                alt="Button with an image of sand falling"
               />
             </Link>
             <Link className="nav-link" to="/jo">
               <h2 className="nav-link-label rubik-font">Juleøl</h2>
-              <img className="nav-link-image" src={juleol} alt="Juleøl" />
+              <img
+                className="nav-link-image"
+                src={juleol}
+                alt="Button with the logo of Juleøl"
+              />
             </Link>
           </div>
         </nav>

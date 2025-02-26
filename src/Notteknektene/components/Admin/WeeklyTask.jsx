@@ -193,7 +193,7 @@ const WeeklyTask = () => {
               {activeImageUrl && (
                 <img
                   src={activeImageUrl}
-                  alt="Active Task"
+                  alt="Image that previews the active Task"
                   className={styles.activeTaskImage}
                 />
               )}

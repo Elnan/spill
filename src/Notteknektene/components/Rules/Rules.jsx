@@ -8,7 +8,10 @@ const Rules = () => {
       <h2>Regler</h2>
       <div className={styles.statsContainer}>
         <div className={styles.underConstruction}>
-          <img src={underConstruction} alt="Under Construction" />
+          <img
+            src={underConstruction}
+            alt="An image which represents this content is under Construction"
+          />
           <p>Denne siden vil komme senere</p>
         </div>
       </div>

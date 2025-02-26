@@ -242,7 +242,7 @@ const UkensOppgave = () => {
               {taskImageUrl ? (
                 <img
                   src={taskImageUrl}
-                  alt="Task"
+                  alt="An image of this weeks task"
                   className={`${styles.taskImage} ${
                     isFullscreen ? styles.fullscreen : ""
                   }`}
