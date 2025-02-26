@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { FaBarsStaggered, FaXmark } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import home from "../public/home.png";
-import notteknektene from "../public/notteknektene.png";
-import fallingSand from "../public/fallingSand.png";
+import home from "../public/home.webp";
+import notteknektene from "../public/notteknektene.webp";
+import fallingSand from "../public/fallingSand.webp";
 import juleol from "../public/juleol.webp";
 import "./styles.css";
 

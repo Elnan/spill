@@ -6,7 +6,7 @@ import {
 } from "../../../firebase/auth";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 import { useAuth } from "../../../context/authContext";
-import googleIcon from "../../../../../public/LogoGoogle.png";
+import googleIcon from "../../../../../public/LogoGoogle.webp";
 
 import styles from "./Login.module.css";
 
