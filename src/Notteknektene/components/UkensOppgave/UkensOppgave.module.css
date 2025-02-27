@@ -245,6 +245,10 @@
   .taskCard {
     font-size: 1.25rem;
     padding: 12px;
+
+    p {
+      margin-block: 0.5em;
+    }
   }
 
   .taskButton {
@@ -258,7 +262,7 @@
 
   .answerInput {
     width: 95%;
-    padding: 8px;
+    margin-top: 0;
   }
 
   .submitButton,

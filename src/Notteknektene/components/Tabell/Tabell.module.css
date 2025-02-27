@@ -69,6 +69,7 @@
   }
   .tableContainer {
     max-width: 99%;
+    overflow-x: auto;
   }
 
   /* .tableHeader,
