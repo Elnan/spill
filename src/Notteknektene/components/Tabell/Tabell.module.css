@@ -67,10 +67,11 @@
 @media (max-width: 768px) {
   .mainBox {
     padding: 0;
+    overflow: auto;
   }
   .tableContainer {
     max-width: 100%;
-    overflow-x: auto;
+    overflow: auto;
   }
 
   .nameCell {
@@ -84,7 +85,7 @@
   .table {
     display: block;
     width: 100%;
-    overflow-x: auto;
+    overflow: auto;
     white-space: nowrap;
   }
 }

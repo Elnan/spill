@@ -169,24 +169,19 @@ div[data-nav="true"] .buttonContainer:hover > .open-icon {
     background-position: center;
   }
 
+  #nav {
+    bottom: -20px;
+  }
+
   #nav-links {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 0;
   }
 
-  .nav-link {
-    clip-path: polygon(
-      0 0,
-      100% 0,
-      100% calc(100% - 2rem),
-      calc(100% - 2rem) 100%,
-      0 100%
-    );
-  }
-
   .nav-link img {
     width: max(40vw);
+    margin-top: 0.2rem;
   }
 
   .buttonContainer {
@@ -202,6 +197,8 @@ div[data-nav="true"] .buttonContainer:hover > .open-icon {
 
   div[data-nav="true"] #nav-toggle {
     transform: translate(-50%, 0%);
+    width: 6rem;
+    height: 6rem;
   }
 
   div[data-nav="true"] #nav-toggle:hover {
@@ -209,7 +206,7 @@ div[data-nav="true"] .buttonContainer:hover > .open-icon {
   }
 
   div[data-nav="true"] .buttonContainer > .close-icon {
-    transform: translate(-50%, 110%);
+    transform: translate(-50%, 50%);
   }
 
   div[data-nav="true"] .buttonContainer {
