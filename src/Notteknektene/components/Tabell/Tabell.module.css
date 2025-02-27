@@ -1,6 +1,6 @@
 .tableContainer {
   margin-top: 20px;
-  max-width: 100%;
+  max-width: 70%;
   overflow-x: auto;
 }
 
@@ -49,12 +49,12 @@
 }
 
 .nameCell {
-  border-right: 2px solid #000;
+  border-right: 2px solid #777;
   text-align: left;
 }
 
 .roundCell {
-  border-right: 2px solid #000;
+  border-right: 2px solid #aaa;
   text-align: center;
 }
 
@@ -64,24 +64,17 @@
 
 /* Responsive design */
 @media (max-width: 768px) {
-  .tableContainer {
-    max-width: 100%;
-    overflow-x: auto;
+  .mainBox {
+    padding: 0;
   }
+  /* .tableContainer {
+    max-width: 100%;
+  } */
 
-  .tableHeader,
+  /* .tableHeader,
   .tableRow {
     display: table-row;
-  }
-
-  .tableCell,
-  .rankCell,
-  .nameCell,
-  .roundCell,
-  .totalColumn {
-    text-align: center;
-    border-right: none;
-  }
+  } */
 
   .nameCell {
     text-align: left;
