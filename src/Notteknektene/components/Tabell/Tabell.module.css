@@ -19,6 +19,7 @@
 
 .buttonContainer {
   margin-bottom: 16px;
+  background-color: #6b21a8;
 }
 
 .mainBox {
@@ -68,14 +69,9 @@
     padding: 0;
   }
   .tableContainer {
-    max-width: 99%;
+    max-width: 100%;
     overflow-x: auto;
   }
-
-  /* .tableHeader,
-  .tableRow {
-    display: table-row;
-  } */
 
   .nameCell {
     text-align: left;
@@ -83,5 +79,12 @@
 
   .tableRow {
     flex-wrap: nowrap;
+  }
+
+  .table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
   }
 }
