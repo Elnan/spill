@@ -113,6 +113,7 @@ const Tabell = ({ currentUser, setUserRank }) => {
               <Table>
                 <TableHead>
                   <TableRow className={styles.tableHeader}>
+                    <TableCell className={styles.rankCell}>#</TableCell>
                     <TableCell className={styles.nameCell}>Navn</TableCell>
                     <TableCell className={styles.openedAtCell}>Åpnet</TableCell>
                     <TableCell className={styles.submittedAtCell}>
@@ -131,6 +132,12 @@ const Tabell = ({ currentUser, setUserRank }) => {
                       className={styles.tableRow}
                       onClick={() => handleRowClick(index)}
                     >
+                      <TableCell
+                        className={styles.rankCell}
+                        style={getRankStyle(index + 1)}
+                      >
+                        {index + 1}
+                      </TableCell>
                       <TableCell className={styles.nameCell}>
                         {row.name}
                       </TableCell>

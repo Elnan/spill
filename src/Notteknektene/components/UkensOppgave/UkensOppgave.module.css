@@ -261,11 +261,6 @@
     padding: 8px;
   }
 
-  .buttonContainer {
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-
   .submitButton,
   .hintButton {
     font-size: 0.875rem;
