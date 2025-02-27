@@ -226,3 +226,20 @@ div[data-nav="true"] .buttonContainer:hover > .open-icon {
     font-size: 1rem;
   }
 }
+
+@media (max-width: 425px) {
+  #nav-links {
+    gap: 1.5rem;
+  }
+  div[data-nav="true"] #nav-toggle {
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (max-width: 375px) {
+  div[data-nav="true"] #nav-toggle {
+    transform: translate(-50%, -70%);
+    width: 5rem;
+    height: 5rem;
+  }
+}
