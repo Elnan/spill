@@ -17,14 +17,13 @@
   background-color: white;
 }
 
-.buttonContainer {
+.mainBox .buttonContainer {
   margin-bottom: 16px;
   background-color: #6b21a8;
 }
 
 .mainBox {
   padding: 16px;
-  overflow-x: auto;
 }
 
 .tableRow:hover {
@@ -67,15 +66,10 @@
 @media (max-width: 768px) {
   .mainBox {
     padding: 0;
-    overflow-x: auto;
   }
   .tableContainer {
     max-width: 100%;
     overflow-x: auto;
-  }
-
-  .nameCell {
-    text-align: left;
   }
 
   .tableRow {
@@ -85,7 +79,6 @@
   .table {
     display: block;
     width: 100%;
-    overflow-x: auto;
     white-space: nowrap;
   }
 }
