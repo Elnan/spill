@@ -192,14 +192,19 @@ div[data-nav="true"] .buttonContainer:hover > .open-icon {
     width: 10rem;
     height: 10rem;
 
-    top: 190%;
+    /* top: 190%; */
   }
 
-  div[data-nav="true"] #nav-toggle {
-    transform: translate(-50%, 0%);
-    width: 6rem;
-    height: 6rem;
+  div[data-nav="true"] .buttonContainer {
+    bottom: 23%;
   }
+
+  .buttonContainer > .open-icon {
+    /* transform: translate(-50%, -75%); */
+    font-size: 3rem;
+  }
+
+  /* 
 
   div[data-nav="true"] #nav-toggle:hover {
     transform: translate(-50%, 0) scale(0.8);
@@ -213,10 +218,7 @@ div[data-nav="true"] .buttonContainer:hover > .open-icon {
     transform: translate(-50%, -80%);
   }
 
-  .buttonContainer > .nav-icon {
-    transform: translate(-50%, -75%);
-    font-size: 3rem;
-  }
+  
 
   .buttonContainer > .open-icon {
     transform: translate(-40%, -50%);
@@ -224,22 +226,21 @@ div[data-nav="true"] .buttonContainer:hover > .open-icon {
 
   .nav-link-label {
     font-size: 1rem;
-  }
+  } */
 }
 
 @media (max-width: 425px) {
-  #nav-links {
-    gap: 1.5rem;
-  }
   div[data-nav="true"] #nav-toggle {
-    transform: translate(-50%, -50%);
+    width: 6rem;
+    height: 6rem;
+  }
+
+  div[data-nav="true"] .buttonContainer {
+    bottom: 10%;
   }
 }
 
+/*
 @media (max-width: 375px) {
-  div[data-nav="true"] #nav-toggle {
-    transform: translate(-50%, -70%);
-    width: 5rem;
-    height: 5rem;
-  }
-}
+  
+} */
