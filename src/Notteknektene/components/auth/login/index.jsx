@@ -6,7 +6,6 @@ import {
 } from "../../../firebase/auth";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 import { useAuth } from "../../../context/authContext";
-import googleIcon from "../../../../../public/LogoGoogle.webp";
 
 import styles from "./Login.module.css";
 
@@ -117,8 +116,8 @@ const Login = () => {
           className={`${styles.googleSigninButton} ${isSigningIn ? styles.buttonDisabled : ""}`}
         >
           <img
-            src={googleIcon}
-            alt="A capitalized G, which is the icon of Google "
+            src="/LogoGoogle.webp"
+            alt="A capitalized G, which is the icon of Google"
             className={styles.googleIcon}
           />
           {isSigningIn ? "Logger inn..." : "Logg inn med Google"}

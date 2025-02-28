@@ -11,7 +11,6 @@ import {
   Box,
   Typography,
   Checkbox,
-  Grid,
 } from "@mui/material";
 import { getDocs, collection } from "firebase/firestore";
 import { notteknekteneDb } from "../../firebase/firebase-config-notteknektene";
@@ -106,135 +105,97 @@ const Tabell = ({ currentUser, setUserRank }) => {
         {view === "round" ? "Sammendraget" : "Rundetabellen"}
       </Button>
 
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
-          {view === "round" ? (
-            <TableContainer component={Paper} className={styles.tableContainer}>
-              <Table>
-                <TableHead>
-                  <TableRow className={styles.tableHeader}>
-                    <TableCell className={styles.rankCell}>#</TableCell>
-                    <TableCell className={styles.nameCell}>Navn</TableCell>
-                    <TableCell className={styles.openedAtCell}>Åpnet</TableCell>
-                    <TableCell className={styles.submittedAtCell}>
-                      Levert
+      {view === "round" ? (
+        <TableContainer component={Paper} className={styles.tableContainer}>
+          <Table>
+            <TableHead>
+              <TableRow className={styles.tableHeader}>
+                <TableCell className={styles.rankCell}>#</TableCell>
+                <TableCell className={styles.nameCell}>Navn</TableCell>
+                <TableCell className={styles.openedAtCell}>Åpnet</TableCell>
+                <TableCell className={styles.submittedAtCell}>Levert</TableCell>
+                <TableCell>Hint</TableCell>
+                <TableCell>Tid brukt</TableCell>
+                <TableCell>Poeng</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {sortedRoundTable.map((row, index) => (
+                <TableRow
+                  key={index}
+                  id={`row-${index}`}
+                  className={styles.tableRow}
+                >
+                  <TableCell
+                    className={styles.rankCell}
+                    style={getRankStyle(index + 1)}
+                  >
+                    {index + 1}
+                  </TableCell>
+                  <TableCell className={styles.nameCell}>{row.name}</TableCell>
+                  <TableCell className={styles.openedAtCell}>
+                    {row.openedAt}
+                  </TableCell>
+                  <TableCell className={styles.submittedAtCell}>
+                    {row.submittedAt}
+                  </TableCell>
+                  <TableCell>
+                    <Checkbox checked={row.hintUsed} disabled />
+                  </TableCell>
+                  <TableCell>{formatTimeSpent(row.timeSpent)}</TableCell>
+                  <TableCell>{row.points}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      ) : (
+        <TableContainer component={Paper} className={styles.tableContainer}>
+          <Table>
+            <TableHead>
+              <TableRow className={styles.tableHeader}>
+                <TableCell className={styles.rankCell}>#</TableCell>
+                <TableCell className={styles.nameCell}>Navn</TableCell>
+                {Array.from({ length: totalRounds }, (_, index) => (
+                  <TableCell key={index} className={styles.roundCell}>
+                    {`R${index + 1}`}
+                  </TableCell>
+                ))}
+                <TableCell className={styles.totalColumn}>Sum</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {sortedTotalScores.map((row, index) => (
+                <TableRow
+                  key={row.id}
+                  id={`row-${index}`}
+                  className={styles.tableRow}
+                >
+                  <TableCell
+                    className={styles.rankCell}
+                    style={getRankStyle(index + 1)}
+                  >
+                    {index + 1}
+                  </TableCell>
+                  <TableCell className={styles.nameCell}>{row.name}</TableCell>
+                  {Array.from({ length: totalRounds }, (_, roundIndex) => (
+                    <TableCell key={roundIndex} className={styles.roundCell}>
+                      {row.scores[roundIndex] !== undefined
+                        ? row.scores[roundIndex]
+                        : ""}
                     </TableCell>
-                    <TableCell>Hint</TableCell>
-                    <TableCell>Tid brukt</TableCell>
-                    <TableCell>Poeng</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {sortedRoundTable.map((row, index) => (
-                    <TableRow
-                      key={index}
-                      id={`row-${index}`}
-                      className={styles.tableRow}
-                      onClick={() => handleRowClick(index)}
-                    >
-                      <TableCell
-                        className={styles.rankCell}
-                        style={getRankStyle(index + 1)}
-                      >
-                        {index + 1}
-                      </TableCell>
-                      <TableCell className={styles.nameCell}>
-                        {row.name}
-                      </TableCell>
-                      <TableCell className={styles.openedAtCell}>
-                        {row.openedAt}
-                      </TableCell>
-                      <TableCell className={styles.submittedAtCell}>
-                        {row.submittedAt}
-                      </TableCell>
-                      <TableCell>
-                        <Checkbox checked={row.hintUsed} disabled />
-                      </TableCell>
-                      <TableCell>{formatTimeSpent(row.timeSpent)}</TableCell>
-                      <TableCell>{row.points}</TableCell>
-                    </TableRow>
                   ))}
-                </TableBody>
-              </Table>
-            </TableContainer>
-          ) : (
-            <TableContainer component={Paper} className={styles.tableContainer}>
-              <Table>
-                <TableHead>
-                  <TableRow className={styles.tableHeader}>
-                    <TableCell className={styles.rankCell}>#</TableCell>
-                    <TableCell className={styles.nameCell}>Navn</TableCell>
-                    {Array.from({ length: totalRounds }, (_, index) => (
-                      <TableCell key={index} className={styles.roundCell}>
-                        {`R${index + 1}`}
-                      </TableCell>
-                    ))}
-                    <TableCell className={styles.totalColumn}>Sum</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {sortedTotalScores.map((row, index) => (
-                    <TableRow
-                      key={row.id}
-                      id={`row-${index}`}
-                      className={styles.tableRow}
-                      onClick={() => handleRowClick(index)}
-                    >
-                      <TableCell
-                        className={styles.rankCell}
-                        style={getRankStyle(index + 1)}
-                      >
-                        {index + 1}
-                      </TableCell>
-                      <TableCell className={styles.nameCell}>
-                        {row.name}
-                      </TableCell>
-                      {Array.from({ length: totalRounds }, (_, roundIndex) => (
-                        <TableCell
-                          key={roundIndex}
-                          className={styles.roundCell}
-                        >
-                          {row.scores[roundIndex] !== undefined
-                            ? row.scores[roundIndex]
-                            : ""}
-                        </TableCell>
-                      ))}
-                      <TableCell className={styles.totalColumn}>
-                        {row.scores.reduce((acc, score) => acc + score, 0)}
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </TableContainer>
-          )}
-        </Grid>
-      </Grid>
+                  <TableCell className={styles.totalColumn}>
+                    {row.scores.reduce((acc, score) => acc + score, 0)}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      )}
     </Box>
   );
-};
-
-// Function to get user rank
-export const getUserRank = (totalScores, userId, roundIndex = null) => {
-  // Sort by points
-  const sortedTotalScores = [...totalScores].sort((a, b) => {
-    const totalPointsA =
-      roundIndex !== null
-        ? a.scores[roundIndex]
-        : a.scores.reduce((acc, score) => acc + score, 0);
-    const totalPointsB =
-      roundIndex !== null
-        ? b.scores[roundIndex]
-        : b.scores.reduce((acc, score) => acc + score, 0);
-    return totalPointsB - totalPointsA;
-  });
-
-  // Finn user by id or name
-  const user = sortedTotalScores.find(
-    (user) => user.id === userId || user.name === userId
-  );
-
-  return user ? sortedTotalScores.indexOf(user) + 1 : null;
 };
 
 export default Tabell;

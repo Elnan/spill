@@ -4,8 +4,6 @@ import { useAuth } from "../../context/authContext";
 import { doSignOut } from "../../firebase/auth";
 import { FaHome, FaTasks, FaListOl, FaClipboardList } from "react-icons/fa";
 import { SiGoogletasks } from "react-icons/si";
-import defaultAvatar from "../../../../public/defaultAvatar.webp";
-
 import styles from "./Sidebar.module.css";
 
 const Sidebar = () => {
@@ -70,7 +68,7 @@ const Sidebar = () => {
       {currentUser && (
         <div className={styles.userInfo}>
           <img
-            src={currentUser.photoURL || defaultAvatar}
+            src={currentUser.photoURL || "/defaultAvatar.webp"}
             alt={currentUser.displayName || currentUser.email}
             className={styles.userPhoto}
           />

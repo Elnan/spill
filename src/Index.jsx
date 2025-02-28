@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import { FaBarsStaggered, FaXmark } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import home from "../public/home.webp";
-import notteknektene from "../public/notteknektene.webp";
-import fallingSand from "../public/fallingSand.webp";
-import juleol from "../public/juleol.webp";
 import "./styles.css";
 
 export default function Index() {
@@ -30,7 +26,7 @@ export default function Index() {
               <h2 className="nav-link-label rubik-font">Home</h2>
               <img
                 className="nav-link-image"
-                src={home}
+                src="/home.webp"
                 alt="Button with an image of a home"
               />
             </a>
@@ -38,7 +34,7 @@ export default function Index() {
               <h2 className="nav-link-label rubik-font">Nøtteknektene</h2>
               <img
                 className="nav-link-image"
-                src={notteknektene}
+                src="/notteknektene.webp"
                 alt="Button with an image of an agent solving a riddle"
               />
             </Link>
@@ -46,7 +42,7 @@ export default function Index() {
               <h2 className="nav-link-label rubik-font">Falling Sand</h2>
               <img
                 className="nav-link-image"
-                src={fallingSand}
+                src="/fallingSand.webp"
                 alt="Button with an image of sand falling"
               />
             </Link>
@@ -54,7 +50,7 @@ export default function Index() {
               <h2 className="nav-link-label rubik-font">Juleøl</h2>
               <img
                 className="nav-link-image"
-                src={juleol}
+                src="/juleol.webp"
                 alt="Button with the logo of Juleøl"
               />
             </Link>

@@ -12,3 +12,25 @@ export const formatTimeSpent = (seconds) => {
 
   return formattedTime.join(" ");
 };
+
+export const getUserRank = (totalScores, userId, roundIndex = null) => {
+  // Sort by points
+  const sortedTotalScores = [...totalScores].sort((a, b) => {
+    const totalPointsA =
+      roundIndex !== null
+        ? a.scores[roundIndex]
+        : a.scores.reduce((acc, score) => acc + score, 0);
+    const totalPointsB =
+      roundIndex !== null
+        ? b.scores[roundIndex]
+        : b.scores.reduce((acc, score) => acc + score, 0);
+    return totalPointsB - totalPointsA;
+  });
+
+  // Finn user by id or name
+  const user = sortedTotalScores.find(
+    (user) => user.id === userId || user.name === userId
+  );
+
+  return user ? sortedTotalScores.indexOf(user) + 1 : null;
+};

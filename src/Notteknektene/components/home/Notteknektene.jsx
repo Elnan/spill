@@ -10,7 +10,7 @@ import {
 import { notteknekteneApp } from "../../firebase/firebase-config-notteknektene.js";
 import { FaCheckCircle, FaTimesCircle, FaHourglassHalf } from "react-icons/fa";
 import styles from "./Notteknektene.module.css";
-import { getUserRank } from "../Tabell/Tabell";
+import { getUserRank } from "../../utils.js";
 
 const Notteknektene = () => {
   const { currentUser } = useAuth();
