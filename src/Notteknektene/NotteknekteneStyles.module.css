@@ -17,3 +17,9 @@ body {
   background-color: #f4f4f4;
   min-height: 100vh;
 }
+
+@media (max-width: 768px) {
+  .mainContent {
+    padding: 4px;
+  }
+}

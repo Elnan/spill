@@ -6,9 +6,10 @@ html {
   overflow: auto;
 }
 
-/* .tableContainer {
+.tableContainer {
   margin-top: 20px;
-  width: 100%;
+  width: auto;
+  max-width: 60%;
   overflow-x: auto;
 }
 
@@ -25,14 +26,13 @@ html {
   background-color: white;
 }
 
-.buttonContainer {
+.tableContainer .buttonContainer {
   margin-bottom: 16px;
   background-color: #6b21a8;
 }
 
 .mainBox {
   padding: 16px;
-  overflow-x: auto;
 }
 
 .tableRow:hover {
@@ -49,7 +49,7 @@ html {
 
 .tableCell {
   padding: 8px 16px;
-} */
+}
 
 /* Table sizes ////////////////////////////// */
 
@@ -90,5 +90,40 @@ html {
     display: block;
     width: 100%;
     white-space: nowrap;
+  }
+} */
+@media (max-width: 1024px) {
+  .tableContainer {
+    max-width: 75%;
+  }
+}
+
+@media (max-width: 768px) {
+  .tableContainer {
+    max-width: 100%;
+  }
+
+  .mainBox {
+    padding: 0;
+    overflow-x: auto;
+  }
+
+  .tableTitle {
+    padding: 1rem;
+  }
+  .mainBox Button {
+    margin-left: 1rem;
+  }
+}
+
+/* @media (max-width: 425px) {
+  .tableContainer {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 375px) {
+  .tableContainer {
+    max-width: 80%;
   }
 } */
