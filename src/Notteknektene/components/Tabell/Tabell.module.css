@@ -1,4 +1,4 @@
-.tableContainer {
+/* .tableContainer {
   margin-top: 20px;
   width: 100%;
   overflow-x: auto;
@@ -41,11 +41,11 @@
 
 .tableCell {
   padding: 8px 16px;
-}
+} */
 
-/* Table sizes */
+/* Table sizes ////////////////////////////// */
 
-.rankCell {
+/* .rankCell {
   text-align: center;
 }
 
@@ -61,10 +61,10 @@
 
 .totalColumn {
   font-weight: bold;
-}
+} */
 
-/* Responsive design */
-@media (max-width: 768px) {
+/* Responsive design ////////////////////*/
+/* @media (max-width: 768px) {
   .mainBox {
     padding: 0;
     overflow-x: auto;
@@ -83,4 +83,4 @@
     width: 100%;
     white-space: nowrap;
   }
-}
+} */
