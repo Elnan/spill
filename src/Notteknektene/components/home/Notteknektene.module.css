@@ -84,8 +84,9 @@ html {
 .logoutButtonMobile {
   display: none;
   position: fixed;
-  bottom: 10%;
+  bottom: 15%;
   left: 50%;
+  font-size: 1.25rem;
   transform: translateX(-50%);
   padding: 10px 20px;
   background-color: #e74c3c;
@@ -106,6 +107,9 @@ html {
     min-width: 100%;
   }
 
+  .welcomeMessageContainer {
+    align-self: center;
+  }
   .welcomeMessage {
     font-size: 1.5rem;
   }
@@ -121,6 +125,7 @@ html {
   .infoCards {
     grid-template-columns: 1fr;
     gap: 10px;
+    align-self: center;
   }
 
   .infoCard {
@@ -141,7 +146,6 @@ html {
     font-size: 1.5rem;
   }
 
-  /* Vis logg ut-knappen på mobil */
   .logoutButtonMobile {
     display: block;
   }

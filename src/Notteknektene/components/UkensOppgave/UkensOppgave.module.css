@@ -7,6 +7,7 @@
   transition: width 0.3s ease;
   align-items: center;
   justify-content: flex-start;
+  align-self: center;
 }
 
 .title {
@@ -19,7 +20,7 @@
 .timerContainer {
   position: fixed;
   top: 0px;
-  left: 55%;
+  left: 53%;
   transform: translateX(-50%);
   background-color: #ffffff;
   padding: 10px 20px;
@@ -30,6 +31,18 @@
   z-index: 1000;
   clip-path: polygon(50% 100%, 100% 75%, 100% 0%, 0% 0%, 0% 75%);
   transition: top 0.5s ease;
+}
+
+@media (max-width: 1440px) {
+  .timerContainer {
+    left: 55%;
+  }
+}
+
+@media (max-width: 1440px) {
+  .timerContainer {
+    left: 60%;
+  }
 }
 
 .timerClosed {
