@@ -11,6 +11,8 @@ import { notteknekteneApp } from "../../firebase/firebase-config-notteknektene.j
 import { FaCheckCircle, FaTimesCircle, FaHourglassHalf } from "react-icons/fa";
 import styles from "./Notteknektene.module.css";
 import { getUserRank } from "../../utils.js";
+import { doSignOut } from "../../firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 const Notteknektene = () => {
   const { currentUser } = useAuth();
@@ -21,6 +23,7 @@ const Notteknektene = () => {
   const [lastRoundRank, setLastRoundRank] = useState(null);
   const [deadline, setDeadline] = useState(null);
   const [timer, setTimer] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCurrentRound = async () => {
@@ -149,6 +152,15 @@ const Notteknektene = () => {
     }
   };
 
+  const handleLogout = async () => {
+    try {
+      await doSignOut();
+      navigate("/auth/login");
+    } catch (error) {
+      console.error("Error logging out: ", error);
+    }
+  };
+
   return (
     <div className={styles.notteknekteneContent}>
       <WelcomeMessage
@@ -173,6 +185,9 @@ const Notteknektene = () => {
           }
         />
       </div>
+      <button onClick={handleLogout} className={styles.logoutButtonMobile}>
+        Logg ut
+      </button>
     </div>
   );
 };

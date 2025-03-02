@@ -26,11 +26,6 @@ html {
   background-color: white;
 }
 
-.tableContainer .buttonContainer {
-  margin-bottom: 16px;
-  background-color: #6b21a8;
-}
-
 .mainBox {
   padding: 16px;
 }
@@ -95,6 +90,7 @@ html {
 @media (max-width: 1024px) {
   .tableContainer {
     max-width: 75%;
+    margin-bottom: 15px;
   }
 }
 

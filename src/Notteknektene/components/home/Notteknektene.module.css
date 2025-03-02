@@ -1,3 +1,11 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
 .notteknekteneContent {
   display: flex;
   flex-direction: column;
@@ -72,6 +80,25 @@
   font-size: 2rem;
 }
 
+/* Logg ut-knapp for mobil */
+.logoutButtonMobile {
+  display: none;
+  position: fixed;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logoutButtonMobile:hover {
+  background-color: #c0392b;
+}
+
 /* Responsiv design */
 @media (max-width: 768px) {
   .notteknekteneContent {
@@ -112,5 +139,10 @@
   .submittedIcon,
   .inactiveIcon {
     font-size: 1.5rem;
+  }
+
+  /* Vis logg ut-knappen på mobil */
+  .logoutButtonMobile {
+    display: block;
   }
 }
