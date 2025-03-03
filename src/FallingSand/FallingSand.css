@@ -1,32 +1,48 @@
 #game-container {
-  width: 80%;
-  height: 100%;
+  width: 100%;
+  height: 80%;
   margin: 0 auto;
   position: relative;
   border: 4px solid white;
-  display: "flex";
+  display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
 }
 
 .main {
-  background-image: url("/fallingSand.webp");
+  background-color: #8d745d;
   background-size: cover;
   background-position: center;
   width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.controls {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+  filter: drop-shadow(0px 1px 1px rgba(255, 255, 255, 0.3))
+    drop-shadow(0px -1px 1px rgba(0, 0, 0, 0.75))
+    drop-shadow(0px -1px 0px rgba(0, 0, 0, 0.2));
 }
 
 .backButton {
-  font-size: 4rem;
-  position: absolute;
-  top: 10px;
-  left: 20px;
-  color: black;
+  font-size: 4.5rem;
+  color: #59443b;
   z-index: 10;
   transition: transform;
   transition-timing-function: ease;
   transition-duration: 400ms;
+  font-family: Arial, Helvetica, serif;
+  position: relative;
 }
 
 .backButton:hover {
@@ -38,30 +54,108 @@
 }
 
 .brushSizeSlider {
-  position: absolute;
-  top: 200px;
-  left: 10px;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 60%;
+  position: relative;
+  color: #59443b;
 }
 
 .brushSizeSlider label {
   margin-bottom: 10px;
-  font-size: 1.25rem;
+  font-size: 2rem;
 }
 
 .brushSizeSlider input {
-  width: 60px;
-  height: 300px;
+  width: 100%;
+  height: 30px;
+  border-radius: 999px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #59443b;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
 }
 
+.brushSizeSlider input:hover {
+  opacity: 1;
+}
+
+.brushSizeSlider input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 35px;
+  height: 35px;
+  background: #8d745d;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.brushSizeSlider input::-moz-range-thumb {
+  width: 35px;
+  height: 35px;
+  background: #8d745d;
+  cursor: pointer;
+  border-radius: 50%;
+}
 .resetButton {
-  position: absolute;
-  font-size: 1.25rem;
-  top: 550px;
-  left: 30px;
+  font-size: 3rem;
+  position: relative;
+  background: none;
+  color: #59443b;
+  border: 2px solid #59443b;
+  border-radius: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  #game-container {
+    width: 100%;
+    height: 80%;
+  }
+
+  .main {
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .controls {
+    height: auto;
+    gap: 30px;
+    padding-block: 30px;
+  }
+
+  .backButton {
+    display: none;
+  }
+
+  .brushSizeSlider {
+    width: 50%;
+  }
+}
+
+@media (max-width: 425px) {
+  .brushSizeSlider {
+    width: 40%;
+  }
+
+  .brushSizeSlider input {
+    height: 20px;
+  }
+
+  .brushSizeSlider input::-webkit-slider-thumb {
+    width: 25px;
+    height: 25px;
+  }
+
+  .brushSizeSlider label {
+    font-size: 1.35rem;
+  }
+
+  .resetButton {
+    font-size: 2rem;
+  }
 }

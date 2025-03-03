@@ -118,8 +118,9 @@ const FallingSand = () => {
       };
 
       function resizeCanvas() {
-        const canvasWidth = window.innerWidth * 0.8; // Screen width
-        const canvasHeight = window.innerHeight; // Screen height
+        let canvasWidth, canvasHeight;
+        canvasWidth = window.innerWidth; // 100% width for tablet and mobile
+        canvasHeight = window.innerHeight * 0.8;
         p.resizeCanvas(canvasWidth, canvasHeight);
         cols = Math.floor(p.width / brushSize);
         rows = Math.floor(p.height / brushSize);
@@ -153,6 +154,7 @@ const FallingSand = () => {
       canvas.remove();
     };
   }, [brushSize, resetCanvas]);
+
   const handleBackToMain = () => {
     navigate("/");
   };
@@ -162,28 +164,30 @@ const FallingSand = () => {
   };
 
   return (
-    <div className={"main"}>
-      <div className="backButton" onClick={handleBackToMain}>
-        <IoArrowBackCircleOutline />
-      </div>
-
-      <div className="brushSizeSlider">
-        <label htmlFor="brushSize">Brush Size: {brushSize}</label>
-        <input
-          id="brushSize"
-          type="range"
-          min="1"
-          max="10"
-          value={brushSize}
-          onChange={(e) => setBrushSize(Number(e.target.value))}
-        />
-      </div>
-
-      <button className="resetButton" onClick={handleResetCanvas}>
-        Reset
-      </button>
-
+    <div className="main">
       <div id="game-container"></div>
+      <div className="controls">
+        <div className="backButton" onClick={handleBackToMain}>
+          <IoArrowBackCircleOutline />
+        </div>
+
+        <div className="brushSizeSlider">
+          <label htmlFor="brushSize">Brush Size: {brushSize}</label>
+          <input
+            background="#59443b"
+            id="brushSize"
+            type="range"
+            min="1"
+            max="10"
+            value={brushSize}
+            onChange={(e) => setBrushSize(Number(e.target.value))}
+          />
+        </div>
+
+        <button className="resetButton" onClick={handleResetCanvas}>
+          Reset
+        </button>
+      </div>
     </div>
   );
 };

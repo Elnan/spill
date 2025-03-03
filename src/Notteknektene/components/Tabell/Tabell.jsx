@@ -102,7 +102,7 @@ const Tabell = ({ currentUser, setUserRank }) => {
         onClick={() => setView(view === "round" ? "total" : "round")}
         className={styles.buttonContainer}
       >
-        {view === "round" ? "Sammendraget" : "Rundetabellen"}
+        {view === "round" ? "Sammenlagt" : "Rundetabellen"}
       </Button>
 
       {view === "round" ? (
