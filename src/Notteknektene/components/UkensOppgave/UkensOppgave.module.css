@@ -35,11 +35,11 @@
 
 @media (max-width: 1440px) {
   .timerContainer {
-    left: 55%;
+    left: 56%;
   }
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1024px) {
   .timerContainer {
     left: 60%;
   }
@@ -276,6 +276,7 @@
   .answerInput {
     width: 95%;
     margin-top: 0;
+    font-size: 20px;
   }
 
   .submitButton,
