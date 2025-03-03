@@ -118,9 +118,9 @@ const FallingSand = () => {
       };
 
       function resizeCanvas() {
-        let canvasWidth, canvasHeight;
-        canvasWidth = window.innerWidth;
-        canvasHeight = window.innerHeight;
+        const container = document.getElementById("game-container");
+        const canvasWidth = container.offsetWidth;
+        const canvasHeight = container.offsetHeight;
         p.resizeCanvas(canvasWidth, canvasHeight);
         cols = Math.floor(p.width / brushSize);
         rows = Math.floor(p.height / brushSize);
