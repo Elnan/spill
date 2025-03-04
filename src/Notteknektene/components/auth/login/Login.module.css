@@ -48,7 +48,7 @@
 
 .formGroup {
   position: relative;
-  margin-bottom: 30px;
+  margin-block: 20px 10px;
 }
 
 .formLabel {
@@ -90,6 +90,12 @@
   text-align: center;
 }
 
+.successMessage {
+  color: green;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
 .submitButton {
   padding: 10px;
   background-color: #007bff;
@@ -110,14 +116,6 @@
 
 .textCenter {
   text-align: center;
-}
-
-.textSm {
-  font-size: 0.875rem;
-}
-
-.mt6 {
-  margin-top: 1.5rem;
 }
 
 .registerLink {
@@ -158,4 +156,16 @@
   width: 20px;
   height: 20px;
   margin-right: 10px;
+}
+
+.resetPasswordLink {
+  background: none;
+  border: none;
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+  font-size: 1rem;
+  align-self: flex-end;
+  margin: 15px;
 }

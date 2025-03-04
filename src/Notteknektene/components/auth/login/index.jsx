@@ -3,6 +3,7 @@ import { useNavigate, Navigate, Link } from "react-router-dom";
 import {
   doSignInWithEmailAndPassword,
   doSignInWithGoogle,
+  doPasswordReset,
 } from "../../../firebase/auth";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 import { useAuth } from "../../../context/authContext";
@@ -14,6 +15,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [isSigningIn, setIsSigningIn] = useState(false);
   const [error, setError] = useState(null);
+  const [resetEmailSent, setResetEmailSent] = useState(false);
   const { currentUser } = useAuth();
   const navigate = useNavigate();
 
@@ -48,6 +50,25 @@ const Login = () => {
       );
     } finally {
       setIsSigningIn(false);
+    }
+  };
+
+  const handlePasswordReset = async () => {
+    if (!email) {
+      setError(
+        "Vennligst skriv inn e-postadressen din for å tilbakestille passordet."
+      );
+      return;
+    }
+
+    try {
+      await doPasswordReset(email);
+      setResetEmailSent(true);
+      setError(null);
+    } catch (error) {
+      setError(
+        "Kunne ikke sende tilbakestillings-e-post. Vennligst prøv igjen senere."
+      );
     }
   };
 
@@ -90,6 +111,19 @@ const Login = () => {
             <label className={styles.formLabel}>Passord</label>
           </div>
           {error && <div className={styles.errorMessage}>{error}</div>}
+          {resetEmailSent && (
+            <div className={styles.successMessage}>
+              En e-post for tilbakestilling av passord har blitt sendt.
+            </div>
+          )}
+
+          <button
+            onClick={handlePasswordReset}
+            className={styles.resetPasswordLink}
+          >
+            Glemt passord?
+          </button>
+
           <button
             type="submit"
             disabled={isSigningIn}

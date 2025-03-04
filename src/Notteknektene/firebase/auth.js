@@ -4,6 +4,10 @@ import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   updateProfile,
+  sendPasswordResetEmail,
+  updatePassword,
+  sendEmailVerification,
+  deleteUser,
 } from "firebase/auth";
 import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
 import { notteknekteneAuth } from "./firebase-config-notteknektene.js";
