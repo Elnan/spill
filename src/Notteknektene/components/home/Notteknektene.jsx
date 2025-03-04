@@ -100,7 +100,7 @@ const Notteknektene = () => {
         const lastRoundRank = getUserRank(
           totalScoresList,
           currentUser.displayName,
-          roundNumber - 1
+          roundNumber
         );
         setLastRoundRank(lastRoundRank);
       }
