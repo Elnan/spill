@@ -13,24 +13,36 @@ export const formatTimeSpent = (seconds) => {
   return formattedTime.join(" ");
 };
 
-export const getUserRank = (totalScores, userId, roundIndex = null) => {
-  // Sort by points
+export const getUserRank = (roundTable, userId) => {
+  // Sorter poengsummene i synkende rekkefølge
+  const sortedRoundTable = [...roundTable].sort((a, b) => {
+    if (b.points === a.points) {
+      // Hvis poengene er like, sorter etter tid brukt
+      return a.timeSpent - b.timeSpent;
+    }
+    return b.points - a.points;
+  });
+
+  // Finn brukeren basert på navn
+  const user = sortedRoundTable.find((user) => user.name === userId);
+
+  // Returner brukerens rangering (indeks + 1) eller null hvis brukeren ikke finnes
+  return user ? sortedRoundTable.indexOf(user) + 1 : null;
+};
+
+export const getTotalRank = (totalScores, userId) => {
+  // Sorter poengsummene i synkende rekkefølge
   const sortedTotalScores = [...totalScores].sort((a, b) => {
-    const totalPointsA =
-      roundIndex !== null
-        ? a.scores[roundIndex]
-        : a.scores.reduce((acc, score) => acc + score, 0);
-    const totalPointsB =
-      roundIndex !== null
-        ? b.scores[roundIndex]
-        : b.scores.reduce((acc, score) => acc + score, 0);
+    const totalPointsA = a.scores.reduce((acc, score) => acc + score, 0); // Total poengsum
+    const totalPointsB = b.scores.reduce((acc, score) => acc + score, 0); // Total poengsum
     return totalPointsB - totalPointsA;
   });
 
-  // Finn user by id or name
+  // Finn brukeren basert på id eller navn
   const user = sortedTotalScores.find(
     (user) => user.id === userId || user.name === userId
   );
 
+  // Returner brukerens rangering (indeks + 1) eller null hvis brukeren ikke finnes
   return user ? sortedTotalScores.indexOf(user) + 1 : null;
 };

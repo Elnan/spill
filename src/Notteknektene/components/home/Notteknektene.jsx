@@ -10,7 +10,7 @@ import {
 import { notteknekteneApp } from "../../firebase/firebase-config-notteknektene.js";
 import { FaCheckCircle, FaTimesCircle, FaHourglassHalf } from "react-icons/fa";
 import styles from "./Notteknektene.module.css";
-import { getUserRank } from "../../utils.js";
+import { getUserRank, getTotalRank } from "../../utils.js";
 import { doSignOut } from "../../firebase/auth";
 import { useNavigate } from "react-router-dom";
 
@@ -94,13 +94,24 @@ const Notteknektene = () => {
       }));
 
       if (currentUser) {
-        const userRank = getUserRank(totalScoresList, currentUser.displayName);
+        const userRank = getTotalRank(totalScoresList, currentUser.displayName);
         setTotalRank(userRank);
+      }
+    };
 
+    const fetchRoundTable = async () => {
+      const db = getFirestore(notteknekteneApp);
+      const roundTableCollection = collection(db, "RoundTable");
+      const roundTableSnapshot = await getDocs(roundTableCollection);
+      const roundTableList = roundTableSnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+
+      if (currentUser) {
         const lastRoundRank = getUserRank(
-          totalScoresList,
-          currentUser.displayName,
-          roundNumber
+          roundTableList,
+          currentUser.displayName
         );
         setLastRoundRank(lastRoundRank);
       }
@@ -111,6 +122,7 @@ const Notteknektene = () => {
     fetchUserRankings();
     fetchSubmissionStatus();
     fetchTotalScores();
+    fetchRoundTable();
   }, [currentUser]);
 
   useEffect(() => {
