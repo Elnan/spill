@@ -11,15 +11,19 @@ import {
 } from "firebase/firestore";
 
 // Function to calculate points for a submission
-export const calculatePoints = (submission) => {
+export const calculatePoints = (submission, isFastest) => {
+  let points = 0;
   if (submission.status === "correct") {
     if (submission.usedHint) {
-      return 3 + (submission.bonus ? 1 : 0);
+      points = 3;
     } else {
-      return 7 + (submission.bonus ? 1 : 0);
+      points = 7;
+    }
+    if (isFastest) {
+      points += 1; // Add bonus point for the fastest correct submission
     }
   }
-  return 0;
+  return points;
 };
 
 // Function to update scores in Firebase and RoundTable collection
@@ -33,12 +37,23 @@ export const updateScores = async (
 
   const scoresMap = new Map();
 
+  // Finn den raskeste korrekte innsendingen
+  const correctSubmissions = updatedSubmissions.filter(
+    (sub) => sub.status === "correct"
+  );
+  const fastestSubmission = correctSubmissions.reduce((fastest, current) => {
+    return !fastest || current.timeSpent < fastest.timeSpent
+      ? current
+      : fastest;
+  }, null);
+
   for (const participant of participants) {
     const participantName = participant.name;
     const submission = updatedSubmissions.find(
       (sub) => sub.userId === participant.id
     );
-    const points = submission ? calculatePoints(submission) : 0;
+    const isFastest = submission && submission.id === fastestSubmission?.id;
+    const points = submission ? calculatePoints(submission, isFastest) : 0;
 
     const totalScoresRef = doc(
       notteknekteneDb,
@@ -84,6 +99,7 @@ export const updateScores = async (
         batch.update(submissionRef, {
           points,
           accepted: submission.status === "correct",
+          isFastest, // Mark if this is the fastest correct submission
         });
       } else {
         console.error(`No document to update: ${submissionRef.path}`);

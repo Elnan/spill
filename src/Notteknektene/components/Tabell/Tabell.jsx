@@ -125,6 +125,9 @@ const Tabell = ({ currentUser, setUserRank }) => {
                   key={index}
                   id={`row-${index}`}
                   className={styles.tableRow}
+                  style={
+                    row.isFastest ? { backgroundColor: "#c9a4eb" } : {} // Fastest time
+                  }
                 >
                   <TableCell
                     className={styles.rankCell}

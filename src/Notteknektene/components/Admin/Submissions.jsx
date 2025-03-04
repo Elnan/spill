@@ -40,15 +40,19 @@ const Submissions = () => {
     setParticipants(participantsList);
   };
 
-  const calculatePoints = (submission) => {
+  const calculatePoints = (submission, isFastest) => {
+    let points = 0;
     if (submission.status === "correct") {
       if (submission.usedHint) {
-        return 3;
+        points = 3;
       } else {
-        return 7;
+        points = 7;
+      }
+      if (isFastest) {
+        points += 1; // Add bonus point for the fastest correct submission
       }
     }
-    return 0;
+    return points;
   };
 
   const handleStatusChange = (id, status) => {
@@ -78,13 +82,24 @@ const Submissions = () => {
         hintUsed: false,
         timeSpent: "",
         points: 0,
+        isFastest: false,
       });
     }
 
-    // Oppdater submissions og RoundTable med riktig informasjon
+    // Finn den raskeste korrekte innsendingen
+    const correctSubmissions = submissions.filter(
+      (sub) => sub.status === "correct"
+    );
+    const fastestSubmission = correctSubmissions.reduce((fastest, current) => {
+      return !fastest || current.timeSpent < fastest.timeSpent
+        ? current
+        : fastest;
+    }, null);
 
+    // Oppdater submissions og RoundTable med riktig informasjon
     for (const submission of submissions) {
-      const points = calculatePoints(submission);
+      const isFastest = submission.id === fastestSubmission?.id;
+      const points = calculatePoints(submission, isFastest);
       const submissionRef = doc(
         notteknekteneDb,
         `submissions/${submission.id}`
@@ -106,6 +121,7 @@ const Submissions = () => {
         hintUsed: submission.usedHint,
         timeSpent: submission.timeSpent,
         points: points,
+        isFastest: isFastest,
       });
     }
 
