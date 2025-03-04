@@ -144,6 +144,7 @@
   margin-top: 20px;
   border: 1px solid #ccc;
   resize: none;
+  font-size: 32px;
 }
 
 .buttonContainer {
@@ -210,8 +211,14 @@
 }
 
 .taskInactive {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 20px;
   color: red;
+  text-align: center;
+  font-size: 2rem;
 }
 
 .submissionMessage {
@@ -276,7 +283,6 @@
   .answerInput {
     width: 95%;
     margin-top: 0;
-    font-size: 20px;
   }
 
   .submitButton,

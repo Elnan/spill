@@ -9,7 +9,10 @@ import {
 } from "firebase/firestore";
 import { useAuth } from "../../context/authContext";
 import { notteknekteneApp } from "../../firebase/firebase-config-notteknektene.js";
-import { IoCheckmarkCircleOutline } from "react-icons/io5";
+import {
+  IoCheckmarkCircleOutline,
+  IoCloseCircleOutline,
+} from "react-icons/io5";
 import styles from "./UkensOppgave.module.css";
 
 const UkensOppgave = () => {
@@ -209,7 +212,12 @@ const UkensOppgave = () => {
   }
 
   if (!isActive) {
-    return <div className={styles.taskInactive}>Oppgaven er ikke aktiv.</div>;
+    return (
+      <div className={styles.taskInactive}>
+        <IoCloseCircleOutline size={64} color="red" />
+        <p>Oppgaven er ikke aktiv.</p>
+      </div>
+    );
   }
 
   return (
