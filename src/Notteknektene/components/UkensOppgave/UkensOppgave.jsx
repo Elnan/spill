@@ -98,7 +98,7 @@ const UkensOppgave = () => {
 
         if (distance < 0) {
           clearInterval(interval);
-          setTimer("EXPIRED");
+          setTimer("Tiden er utgått!");
           setIsActive(false);
         } else {
           const days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -243,7 +243,7 @@ const UkensOppgave = () => {
             </div>
           ) : !taskOpen ? (
             <button className={styles.taskButton} onClick={handleOpenTask}>
-              Open Task
+              Åpne Oppgaven
             </button>
           ) : (
             <>
@@ -257,7 +257,7 @@ const UkensOppgave = () => {
                   onClick={() => setIsFullscreen(!isFullscreen)}
                 />
               ) : (
-                <p>No task image available</p>
+                <p>Oppgavebildet er ikke tilgjengelig.</p>
               )}
               <p>
                 <strong>Oppgavenavn:</strong> {task}
@@ -280,7 +280,7 @@ const UkensOppgave = () => {
                   onClick={handleSubmitAnswer}
                   disabled={submitted}
                 >
-                  {submitted ? "Answer Submitted" : "Submit Answer"}
+                  {submitted ? "Svar Avgitt" : "Avgi Svar"}
                 </button>
                 <button
                   className={styles.hintButton}
