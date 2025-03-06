@@ -44,7 +44,7 @@ const Submissions = () => {
     let points = 0;
     if (submission.status === "correct") {
       if (submission.usedHint) {
-        points = 3;
+        points = 4;
       } else {
         points = 7;
       }

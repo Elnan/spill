@@ -134,7 +134,7 @@ const Notteknektene = () => {
 
         if (distance < 0) {
           clearInterval(interval);
-          setTimer("EXPIRED");
+          setTimer("Tiden er ute!");
         } else {
           const days = Math.floor(distance / (1000 * 60 * 60 * 24));
           const hours = Math.floor(
