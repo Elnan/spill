@@ -27,11 +27,13 @@
 .participantsContainer {
   width: 100%;
   margin: 20px 0;
+  padding: 20px;
 }
 
 .participantsList {
   list-style: none;
   padding: 0;
+  list-style-type: none;
 }
 
 .participantsList li {
@@ -40,7 +42,7 @@
   align-items: center;
   padding: 8px;
   border: 1px solid #ddd;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .participating {
@@ -54,4 +56,25 @@
 
 .participantsList li:hover {
   background-color: #f1f1f1;
+}
+
+.nameInput {
+  margin-right: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.deleteButton {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.deleteButton:hover {
+  background-color: #d32f2f;
 }

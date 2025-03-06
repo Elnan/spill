@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import useUsers from "../hooks/useUsers";
-import { updateUserParticipation } from "../../firebase/notteknektene-firebase-utils";
+import { updateUserParticipation, updateUserName, deleteUser } from "../../firebase/notteknektene-firebase-utils";
 import { useAuth } from "../../context/authContext";
 import styles from "./Participants.module.css";
 
@@ -26,6 +26,16 @@ const Participants = () => {
     );
   };
 
+  const handleNameChange = (userId, newName) => {
+    setParticipants((prevParticipants) =>
+      prevParticipants.map((participant) =>
+        participant.id === userId
+          ? { ...participant, displayName: newName }
+          : participant
+      )
+    );
+  };
+
   const handleSaveChanges = async () => {
     try {
       for (const participant of participants) {
@@ -33,11 +43,25 @@ const Participants = () => {
           participant.id,
           participant.Participating
         );
+        await updateUserName(participant.id, participant.displayName);
       }
       alert("Participants updated successfully.");
     } catch (error) {
       console.error("Error updating participants:", error);
       alert("Error updating participants.");
+    }
+  };
+
+  const handleDeleteUser = async (userId) => {
+    try {
+      await deleteUser(userId);
+      setParticipants((prevParticipants) =>
+        prevParticipants.filter((participant) => participant.id !== userId)
+      );
+      alert("User deleted successfully.");
+    } catch (error) {
+      console.error("Error deleting user:", error);
+      alert("Error deleting user.");
     }
   };
 
@@ -51,7 +75,13 @@ const Participants = () => {
       <ul className={styles.participantsList}>
         {participants.map((participant) => (
           <li key={participant.id}>
-            <span>{participant.displayName || participant.email}</span>
+            <input
+              type="text"
+              value={participant.displayName || ""}
+              onChange={(e) => handleNameChange(participant.id, e.target.value)}
+              className={styles.nameInput}
+            />
+            <span>{participant.email}</span>
             <button
               onClick={() => handleToggleParticipation(participant.id)}
               className={participant.Participating ? styles.participating : ""}
@@ -59,6 +89,12 @@ const Participants = () => {
               {participant.Participating
                 ? "Participating"
                 : "Not Participating"}
+            </button>
+            <button
+              onClick={() => handleDeleteUser(participant.id)}
+              className={styles.deleteButton}
+            >
+              Delete
             </button>
           </li>
         ))}

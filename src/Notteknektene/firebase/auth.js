@@ -13,6 +13,9 @@ import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
 import { notteknekteneAuth } from "./firebase-config-notteknektene.js";
 
 const googleProvider = new GoogleAuthProvider();
+googleProvider.setCustomParameters({
+  prompt: "select_account",
+});
 const notteknekteneDb = getFirestore(notteknekteneAuth.app);
 
 export const doSignInWithEmailAndPassword = async (email, password) => {
@@ -30,8 +33,20 @@ export const doSignInWithGoogle = async () => {
       await setDoc(userRef, {
         email: result.user.email,
         name: result.user.displayName,
+        displayName: result.user.displayName, // Set displayName
         Participating: false,
       });
+    } else {
+      // Update displayName if it is not set
+      if (!userDoc.data().displayName) {
+        await updateProfile(result.user, {
+          displayName: result.user.displayName,
+        });
+        await setDoc(userRef, {
+          ...userDoc.data(),
+          displayName: result.user.displayName,
+        });
+      }
     }
 
     return result;
@@ -59,6 +74,7 @@ export const doCreateUserWithEmailAndPassword = async (
     await setDoc(doc(notteknekteneDb, "users", userCredential.user.uid), {
       email: userCredential.user.email,
       name: username,
+      displayName: username, // Set displayName
       Participating: false,
     });
     return userCredential;

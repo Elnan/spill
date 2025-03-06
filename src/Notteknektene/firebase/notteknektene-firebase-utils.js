@@ -7,6 +7,8 @@ import {
   query,
   where,
   getDocs,
+  updateDoc,
+  deleteDoc,
 } from "firebase/firestore";
 import { notteknekteneApp } from "./firebase-config-notteknektene.js";
 
@@ -40,11 +42,21 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
 export const updateUserParticipation = async (userId, participating) => {
   const userRef = doc(notteknekteneDb, "users", userId);
-  try {
-    await setDoc(userRef, { Participating: participating }, { merge: true });
-  } catch (error) {
-    console.error("Error updating user participation:", error);
-  }
+  await updateDoc(userRef, {
+    Participating: participating,
+  });
+};
+
+export const updateUserName = async (userId, newName) => {
+  const userRef = doc(notteknekteneDb, "users", userId);
+  await updateDoc(userRef, {
+    displayName: newName,
+  });
+};
+
+export const deleteUser = async (userId) => {
+  const userRef = doc(notteknekteneDb, "users", userId);
+  await deleteDoc(userRef);
 };
 
 export const getCurrentRound = async () => {
