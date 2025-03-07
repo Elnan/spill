@@ -94,16 +94,18 @@ const Tabell = ({ currentUser, setUserRank }) => {
 
   return (
     <Box className={styles.mainBox}>
-      <Typography variant="h4" gutterBottom className={styles.tableTitle}>
-        {view === "round" ? `Runde ${roundNumber}` : "Sammenlagt"}
-      </Typography>
-      <Button
-        variant="contained"
-        onClick={() => setView(view === "round" ? "total" : "round")}
-        className={styles.buttonContainer}
-      >
-        {view === "round" ? "Sammenlagt" : "Rundetabellen"}
-      </Button>
+      <div className={styles.tableHeader}>
+        <Typography variant="h4" gutterBottom className={styles.tableTitle}>
+          {view === "round" ? `Runde ${roundNumber}` : "Sammenlagt"}
+        </Typography>
+        <Button
+          variant="contained"
+          onClick={() => setView(view === "round" ? "total" : "round")}
+          className={styles.buttonContainer}
+        >
+          {view === "round" ? "Sammenlagt" : "Rundetabellen"}
+        </Button>
+      </div>
 
       {view === "round" ? (
         <TableContainer component={Paper} className={styles.tableContainer}>

@@ -73,6 +73,12 @@ html {
     overflow-x: auto;
   }
 
+  .tableHeader {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
   .tableTitle {
     padding: 1rem;
   }
