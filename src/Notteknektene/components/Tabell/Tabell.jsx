@@ -95,7 +95,7 @@ const Tabell = ({ currentUser, setUserRank }) => {
   return (
     <Box className={styles.mainBox}>
       <div className={styles.tableHeader}>
-        <Typography variant="h4" gutterBottom className={styles.tableTitle}>
+        <Typography variant="h4" className={styles.tableTitle}>
           {view === "round" ? `Runde ${roundNumber}` : "Sammenlagt"}
         </Typography>
         <Button
