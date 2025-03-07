@@ -126,7 +126,9 @@ const Notteknektene = () => {
   }, [currentUser]);
 
   useEffect(() => {
-    if (deadline) {
+    if (taskStatus === "Inactive") {
+      setTimer("Oppgaven er ikke aktiv.");
+    } else if (deadline) {
       const interval = setInterval(() => {
         const now = new Date().getTime();
         const countDownDate = new Date(deadline).getTime();
@@ -151,7 +153,7 @@ const Notteknektene = () => {
 
       return () => clearInterval(interval);
     }
-  }, [deadline]);
+  }, [deadline, taskStatus]);
 
   const getStatusIcon = (status) => {
     switch (status) {

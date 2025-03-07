@@ -107,7 +107,7 @@ const Tabell = ({ currentUser, setUserRank }) => {
 
       {view === "round" ? (
         <TableContainer component={Paper} className={styles.tableContainer}>
-          <Table>
+          <Table stickyHeader>
             <TableHead>
               <TableRow className={styles.tableHeader}>
                 <TableCell className={styles.rankCell}>#</TableCell>
@@ -154,7 +154,7 @@ const Tabell = ({ currentUser, setUserRank }) => {
         </TableContainer>
       ) : (
         <TableContainer component={Paper} className={styles.tableContainer}>
-          <Table>
+          <Table stickyHeader>
             <TableHead>
               <TableRow className={styles.tableHeader}>
                 <TableCell className={styles.rankCell}>#</TableCell>

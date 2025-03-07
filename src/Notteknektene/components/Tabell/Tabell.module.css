@@ -1,16 +1,17 @@
 body,
 html {
-  height: 100%;
+  height: 100dvh;
   margin: 0;
   padding: 0;
-  overflow: auto;
 }
 
 .tableContainer {
   margin-top: 20px;
   width: auto;
-  max-width: 60%;
+  max-width: 50%;
+  max-height: 80dvh;
   overflow-x: auto;
+  overflow-y: auto;
 }
 
 .tableHeader {
@@ -27,7 +28,8 @@ html {
 }
 
 .mainBox {
-  padding: 16px;
+  height: 100dvh;
+  padding-bottom: 0;
 }
 
 .tableRow:hover {
@@ -46,50 +48,16 @@ html {
   padding: 8px 16px;
 }
 
-/* Table sizes ////////////////////////////// */
-
-/* .rankCell {
-  text-align: center;
-}
-
-.nameCell {
-  border-right: 2px solid #777;
-  text-align: left;
-}
-
-.roundCell {
-  border-right: 2px solid #aaa;
-  text-align: center;
-}
-
-.totalColumn {
-  font-weight: bold;
-} */
-
-/* Responsive design ////////////////////*/
-/* @media (max-width: 768px) {
-  .mainBox {
-    padding: 0;
-    overflow-x: auto;
-  }
+@media (max-width: 1440px) {
   .tableContainer {
-    width: 100%;
-    overflow-x: auto;
+    max-width: 65%;
+    margin-bottom: 15px;
   }
+}
 
-  .tableRow {
-    flex-wrap: nowrap;
-  }
-
-  .table {
-    display: block;
-    width: 100%;
-    white-space: nowrap;
-  }
-} */
 @media (max-width: 1024px) {
   .tableContainer {
-    max-width: 75%;
+    max-width: 95%;
     margin-bottom: 15px;
   }
 }
