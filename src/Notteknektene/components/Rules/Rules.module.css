@@ -1,4 +1,6 @@
 .rulesContainer {
   padding: 1rem;
   padding-bottom: 40px;
+  max-height: 100dvh;
+  overflow: auto;
 }
