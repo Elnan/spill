@@ -12,10 +12,7 @@ const Rules = () => {
           hver uke.
         </li>
         <li>
-          Hver nøtt har en innleveringsfrist på{" "}
-          <strong>fire dager, kl. 18:00</strong>.
-          <br />
-          Eksempel: Hvis en oppgave slippes mandag, er fristen fredag kl. 18:00.
+          Hver nøtt har en innleveringsfrist <strong>Søndag, kl. 18:00</strong>.
         </li>
         <li>
           Du har kun <strong>ett forsøk</strong> per oppgave – tenk deg godt om
