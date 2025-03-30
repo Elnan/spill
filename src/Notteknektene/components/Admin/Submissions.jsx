@@ -9,8 +9,7 @@ import styles from "./Submissions.module.css";
 const Submissions = () => {
   const [submissions, setSubmissions] = useState([]);
   const [participants, setParticipants] = useState([]);
-  const { roundNumber } = useContext(TaskContext);
-  const { seasonNumber } = useContext(TaskContext);
+  const { roundNumber, seasonNumber } = useContext(TaskContext);
 
   useEffect(() => {
     const fetchSubmissions = async () => {
@@ -23,22 +22,22 @@ const Submissions = () => {
       setSubmissions(submissionsList);
     };
 
+    const fetchParticipants = async () => {
+      const usersCollection = collection(notteknekteneDb, "users");
+      const usersSnapshot = await getDocs(usersCollection);
+
+      const participantsList = usersSnapshot.docs
+        .map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }))
+        .filter((user) => user.Participating === true);
+      setParticipants(participantsList);
+    };
+
     fetchSubmissions();
     fetchParticipants();
   }, []);
-
-  const fetchParticipants = async () => {
-    const usersCollection = collection(notteknekteneDb, "users");
-    const usersSnapshot = await getDocs(usersCollection);
-
-    const participantsList = usersSnapshot.docs
-      .map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }))
-      .filter((user) => user.Participating === true);
-    setParticipants(participantsList);
-  };
 
   const calculatePoints = (submission, isFastest) => {
     let points = 0;
@@ -74,9 +73,10 @@ const Submissions = () => {
 
     // Oppdater RoundTable med alle brukere som har participating: true
     for (const user of participants) {
-      const roundTableRef = doc(notteknekteneDb, `RoundTable/${user.name}`);
+      const userName = user.name || user.displayName;
+      const roundTableRef = doc(notteknekteneDb, `RoundTable/${userName}`);
       batch.set(roundTableRef, {
-        name: user.name,
+        name: userName,
         openedAt: "",
         submittedAt: "",
         hintUsed: false,
@@ -100,18 +100,16 @@ const Submissions = () => {
     for (const submission of submissions) {
       const isFastest = submission.id === fastestSubmission?.id;
       const points = calculatePoints(submission, isFastest);
-      const submissionRef = doc(
-        notteknekteneDb,
-        `submissions/${submission.id}`
-      );
+      const userName = submission.name || submission.displayName; // Bruk `name` hvis tilgjengelig
+      const submissionRef = doc(notteknekteneDb, `submissions/${userName}`);
       batch.update(submissionRef, {
         points,
         accepted: submission.status === "correct",
       });
 
-      const roundTableRef = doc(notteknekteneDb, `RoundTable/${submission.id}`);
+      const roundTableRef = doc(notteknekteneDb, `RoundTable/${userName}`);
       batch.set(roundTableRef, {
-        name: submission.id,
+        name: userName,
         openedAt: submission.openedAt
           ? submission.openedAt.toDate().toLocaleString()
           : "",

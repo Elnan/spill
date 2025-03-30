@@ -44,7 +44,7 @@ const Participants = () => {
       setParticipants((prevParticipants) =>
         prevParticipants.map((participant) =>
           participant.id === userId
-            ? { ...participant, name: newName }
+            ? { ...participant, name: newName, displayName: newName }
             : participant
         )
       );

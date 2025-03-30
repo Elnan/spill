@@ -37,7 +37,7 @@ export const updateScores = async (
 
   const scoresMap = new Map();
 
-  // Finn den raskeste korrekte innsendingen
+  // Function to find the fastest correct submission
   const correctSubmissions = updatedSubmissions.filter(
     (sub) => sub.status === "correct"
   );
@@ -48,7 +48,7 @@ export const updateScores = async (
   }, null);
 
   for (const participant of participants) {
-    const participantName = participant.name;
+    const participantName = participant.name || participant.displayName;
     const submission = updatedSubmissions.find(
       (sub) => sub.userId === participant.id
     );

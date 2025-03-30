@@ -112,7 +112,7 @@ const UkensOppgave = () => {
 
           setTimer(`${days}d ${hours}h ${minutes}m ${seconds}s`);
         }
-        setIsTimerLoaded(true); // Sett isTimerLoaded til true når timeren er lastet inn
+        setIsTimerLoaded(true); // Set isTimerLoaded to true when the timer is loaded
       }, 1000);
 
       return () => clearInterval(interval);
@@ -125,8 +125,10 @@ const UkensOppgave = () => {
       return;
     }
 
+    const userName = currentUser.name || currentUser.displayName;
+
     try {
-      const submissionRef = doc(db, `submissions/${currentUser.displayName}`);
+      const submissionRef = doc(db, `submissions/${userName}`);
 
       const docSnap = await getDoc(submissionRef);
       if (!docSnap.exists()) {
