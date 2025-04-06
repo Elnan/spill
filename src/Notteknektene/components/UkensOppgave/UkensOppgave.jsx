@@ -62,7 +62,8 @@ const UkensOppgave = () => {
 
     const fetchUserSubmission = async () => {
       if (currentUser) {
-        const submissionRef = doc(db, `submissions/${currentUser.displayName}`);
+        const userName = currentUser.name || currentUser.displayName;
+        const submissionRef = doc(db, `submissions/${userName}`);
         const submissionDoc = await getDoc(submissionRef);
 
         if (submissionDoc.exists()) {
