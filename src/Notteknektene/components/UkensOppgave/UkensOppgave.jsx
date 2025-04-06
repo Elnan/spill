@@ -161,8 +161,17 @@ const UkensOppgave = () => {
       return;
     }
 
+    const userName = currentUser.name || currentUser.displayName;
+
     try {
-      const submissionRef = doc(db, `submissions/${currentUser.displayName}`);
+      const submissionRef = doc(db, `submissions/${userName}`);
+      const docSnap = await getDoc(submissionRef);
+
+      if (!docSnap.exists()) {
+        console.error("Submission document does not exist.");
+        alert("Du må åpne oppgaven før du kan bruke hint.");
+        return;
+      }
 
       await updateDoc(submissionRef, {
         usedHint: true,
@@ -172,6 +181,7 @@ const UkensOppgave = () => {
       setShowHint(true);
     } catch (error) {
       console.error("Error using hint:", error);
+      alert("Det oppstod en feil ved bruk av hint.");
     }
   };
 
