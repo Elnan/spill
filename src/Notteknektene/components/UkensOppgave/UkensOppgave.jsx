@@ -191,11 +191,25 @@ const UkensOppgave = () => {
       return;
     }
 
-    try {
-      const submissionRef = doc(db, `submissions/${currentUser.displayName}`);
+    const userName = currentUser.name || currentUser.displayName;
 
+    try {
+      const submissionRef = doc(db, `submissions/${userName}`);
       const docSnap = await getDoc(submissionRef);
+
+      if (!docSnap.exists()) {
+        console.error("Submission document does not exist.");
+        alert("Du må åpne oppgaven før du kan avgi svar.");
+        return;
+      }
+
       const submissionData = docSnap.data();
+
+      if (!openedAt) {
+        console.error("OpenedAt timestamp is missing.");
+        alert("Det oppstod en feil. Prøv å åpne oppgaven på nytt.");
+        return;
+      }
 
       const submittedAt = new Date();
       const timeSpent = (submittedAt - openedAt) / 1000; // Time spent in seconds
@@ -216,6 +230,7 @@ const UkensOppgave = () => {
       setConfirmationMessage("Svaret ditt er sendt inn!");
     } catch (error) {
       console.error("Error submitting answer:", error);
+      alert("Det oppstod en feil ved innsending av svaret.");
     }
   };
 
