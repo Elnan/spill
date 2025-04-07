@@ -73,7 +73,7 @@ const Submissions = () => {
 
     // Oppdater RoundTable med alle brukere som har participating: true
     for (const user of participants) {
-      const userName = user.name || user.displayName || `unknown_${user.id}`; // Fallback til en unik ID hvis navn mangler
+      const userName = user.name || user.displayName || user.id;
 
       if (!userName) {
         console.error(`User with ID ${user.id} has no name or displayName.`);
@@ -107,7 +107,7 @@ const Submissions = () => {
       const isFastest = submission.id === fastestSubmission?.id;
       const points = calculatePoints(submission, isFastest);
       const userName =
-        submission.name || submission.displayName || `unknown_${submission.id}`; // Fallback til en unik ID hvis navn mangler
+        submission.name || submission.displayName || submission.id; // Bruk `submission.id` som fallback
 
       if (!userName) {
         console.error(
@@ -116,7 +116,10 @@ const Submissions = () => {
         continue; // Hopp over innsendinger uten gyldig navn
       }
 
-      const submissionRef = doc(notteknekteneDb, `submissions/${userName}`);
+      const submissionRef = doc(
+        notteknekteneDb,
+        `submissions/${submission.id}`
+      ); // Bruk alltid `submission.id` for oppdatering
       batch.update(submissionRef, {
         points,
         accepted: submission.status === "correct",
