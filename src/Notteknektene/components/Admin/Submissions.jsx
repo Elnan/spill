@@ -106,20 +106,14 @@ const Submissions = () => {
     for (const submission of submissions) {
       const isFastest = submission.id === fastestSubmission?.id;
       const points = calculatePoints(submission, isFastest);
-      const userName =
-        submission.name || submission.displayName || submission.id; // Bruk `submission.id` som fallback
 
-      if (!userName) {
-        console.error(
-          `Submission with ID ${submission.id} has no name or displayName.`
-        );
-        continue; // Hopp over innsendinger uten gyldig navn
-      }
+      // Bruk alltid `submission.id` som dokument-ID
+      const userName = submission.id;
 
       const submissionRef = doc(
         notteknekteneDb,
         `submissions/${submission.id}`
-      ); // Bruk alltid `submission.id` for oppdatering
+      );
       batch.update(submissionRef, {
         points,
         accepted: submission.status === "correct",
