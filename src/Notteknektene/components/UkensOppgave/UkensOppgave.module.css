@@ -179,7 +179,7 @@
 }
 
 .hintButton {
-  background-color: #227e00;
+  background-color: #bd6b00;
   color: white;
   font-size: 1rem;
   font-weight: 600;
@@ -191,7 +191,7 @@
 }
 
 .hintButton:hover {
-  background-color: #195c00;
+  background-color: #b46600;
 }
 
 .hintButton:disabled {
